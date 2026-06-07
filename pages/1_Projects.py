@@ -191,7 +191,7 @@ with tab2:
         fig_fp = go.Figure(go.Bar(
             x=months_fp, y=fp_vals,
             marker_color=["#D85A30", "#1D9E75"],
-            text=[f"{v}%", f"{v}%"], textposition="outside"
+            text=[f"{fp_vals[0]}%", f"{fp_vals[1]}%"], textposition="outside"
         ))
         fig_fp.update_layout(
             title="False Positive Rate: Before vs After",
