@@ -20,7 +20,7 @@ export default function Projects() {
             Analytics in action.
           </h2>
           <p className="mt-4 text-[15px] leading-7 text-slate-400">
-            Real-world engagements and end-to-end analytical solutions — spanning B2B time-series forecasting, machine learning threat detection, state-level EV market modeling, AI reporting pipelines, and complex SQL relational queries.
+            End-to-end analytical solutions and production-grade architectures — spanning higher education workforce skill gap modeling, Smart Water ATM IoT sensor telemetry, financial transaction & demand prediction, and institutional academic intelligence dashboards.
           </p>
         </div>
 

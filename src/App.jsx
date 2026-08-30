@@ -6,7 +6,6 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import InteractiveWidget from './components/InteractiveWidget';
-import Experience from './components/Experience';
 import EducationCerts from './components/EducationCerts';
 import GitHubBanner from './components/GitHubBanner';
 import Contact from './components/Contact';
@@ -26,7 +25,6 @@ export default function App() {
         <Skills />
         <Projects />
         <InteractiveWidget />
-        <Experience />
         <EducationCerts />
         <GitHubBanner />
         <Contact />

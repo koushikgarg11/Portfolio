@@ -9,20 +9,22 @@ A high-performance, dark-themed, glassmorphic Data Analyst portfolio built with 
 - **Aesthetic Dark Theme:** Deep slate `#060b14` background with geometric grid overlay (`grid-bg`) and glowing cyan/violet blur gradients.
 - **Glassmorphic Navigation:** Sticky responsive navbar with smooth section scrolling and mobile overlay menu.
 - **Interactive Case Study Modals:** Fullscreen popup modals for every project detailing the *Business Problem, Dataset, Data Cleaning, Analytical Methodology, Visualizations, Key Findings, and Strategic Business Recommendations*.
-- **Live Inventory / EOQ Calculator Widget:** Interactive slider-driven Economic Order Quantity (EOQ), Safety Stock, and Reorder Point calculator based on client work at Taiwal Enterprises.
+- **Live Inventory / Optimization Calculator Widget:** Interactive slider-driven Economic Order Quantity (EOQ), Safety Stock, and Reorder Point calculator.
 - **Dynamic Visualizations & Schemas:**
-  - ARIMA Time-Series forecast curves with 95% confidence intervals.
-  - Supervised Machine Learning threat detection benchmark & confusion matrix comparisons.
-  - India State-Level EV adoption priority rankings and YoY acceleration breakdown.
-  - Multi-step Python ETL + LLM automated reporting pipeline diagram.
-  - 7-Table SQL relational database schema visualizer.
+  - Comparative Higher Education Skill Deficit rate by engineering discipline (Civil, Mech, Chem, ECE, CSE).
+  - Smart Water ATM IoT Sensor Telemetry stream monitor (Volume, Flow, TDS water purity, Node status).
+  - 24-Hour Bimodal Hourly Consumption Surge curve and RFID smart card payment split.
+  - Institutional College Academic GPA benchmark, attendance impact curve, and student retention monitor.
 - **Structured Sections:**
-  - 🟢 **Hero Section** with quantified impact tags & animated CTAs.
-  - 📈 **Key Metrics Bar** (15–20% forecast gain, 18% FP reduction, 30% ETL saved, Top 1% national rank).
+  - 🟢 **Hero Section** with quantified impact tags & simulated telemetry pipeline.
+  - 📈 **Key Metrics Bar** (5+ Disciplines Modeled, 25+ Kiosks, 4,500+ Records, 94.2% Uptime, Top 1% national rank).
   - 👤 **About Me** storytelling narrative & candidate profile card.
-  - 🛠️ **Categorized Skills** with interactive filters (Analytics, BI, ML, Databases, Business, AI).
-  - 🚀 **Featured Projects** with case studies and GitHub repository links.
-  - 🏢 **Work Experience Timeline** (Unified Mentor, Taiwal Enterprises, Business.io Society IIT Madras).
+  - 🛠️ **Categorized Skills** with interactive filters (Analytics, BI, ML, Databases, IoT Utility, AI).
+  - 🚀 **Featured Projects** with 4 deep-dive case studies and GitHub repository links:
+    1. *Which Engineering Branches Face the Biggest Skill Gap?*
+    2. *Smart Water ATM: IoT Telemetry & Consumption Analytics*
+    3. *Smart Water ATM: RFID Transactions & Demand Prediction*
+    4. *College Performance & Academic Intelligence Dashboard*
   - 🎓 **Education, Certifications & Competitions** (IIT Madras Data Science, DU B.Com Hons, Unstop Top 1%).
   - 📬 **Interactive Contact Form & Direct Links** (Email, LinkedIn, GitHub, WhatsApp).
 
@@ -105,8 +107,7 @@ portfolio/
 │       ├── Projects.jsx           # Featured projects with visual previews
 │       ├── ProjectVisual.jsx      # Custom SVG/chart visualizers for each project
 │       ├── CaseStudyModal.jsx     # Comprehensive case study popup modal
-│       ├── InteractiveWidget.jsx  # Live EOQ & Safety Stock calculator
-│       ├── Experience.jsx         # Work experience timeline
+│       ├── InteractiveWidget.jsx  # Live optimization calculator
 │       ├── EducationCerts.jsx     # Education, Certifications & Competitions
 │       ├── GitHubBanner.jsx       # GitHub callout banner
 │       ├── Contact.jsx            # Interactive contact form & direct channels

@@ -41,7 +41,7 @@ export default function InteractiveWidget() {
                 Live Inventory Model & EOQ Calculator
               </h3>
               <p className="mt-1 text-xs text-slate-400">
-                Test the mathematical inventory optimization algorithms applied during the Taiwal Enterprises engagement.
+                Interactive simulation demonstrating mathematical inventory optimization, Safety Stock calculation, and Reorder Point algorithms.
               </p>
             </div>
             <button

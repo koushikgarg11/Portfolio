@@ -7,7 +7,7 @@ export default function About() {
     { label: "Role", value: personalInfo.title, icon: User },
     { label: "Education", value: "Diploma in Data Science (IIT Madras, Online) · B.Com (Hons) DU", icon: GraduationCap },
     { label: "Location", value: personalInfo.location, icon: MapPin },
-    { label: "Focus Areas", value: "Time-Series Forecasting, ML Threat Detection, BI", icon: Target },
+    { label: "Focus Areas", value: "Skill Gap Analytics, IoT Telemetry, BI", icon: Target },
     { label: "Core Tools", value: "Python · SQL · Power BI · Tableau · Excel", icon: Cpu }
   ];
 
@@ -30,13 +30,13 @@ export default function About() {
           {/* Left Column: Narrative Story */}
           <div className="space-y-5 text-[15px] leading-7 text-slate-400">
             <p>
-              I am an analytical problem-solver currently pursuing a <strong className="text-white">Diploma in Data Science from IIT Madras</strong> with a strong foundation in <strong className="text-white">B.Com (Honours) from the University of Delhi (81.6%)</strong>. This blend gives me both statistical depth and sharp business intuition.
+              I am an analytical problem-solver currently pursuing a <strong className="text-white">Diploma in Data Science from IIT Madras</strong> with a strong foundation in <strong className="text-white">B.Com (Honours) from the University of Delhi (81.6%)</strong>. This blend gives me both rigorous quantitative modeling depth and sharp business intuition.
             </p>
             <p>
-              My hands-on work bridges the gap between raw data engineering and executive decision-making. Whether implementing <strong className="text-cyan-300">ARIMA models</strong> for B2B demand forecasting at Taiwal Enterprises, training <strong className="text-cyan-300">Random Forest classifiers</strong> on 100K+ cybersecurity records at Unified Mentor, or building dynamic <strong className="text-cyan-300">Power BI & Tableau dashboards</strong>, I focus on measurable business ROI.
+              My analytical work bridges the gap between raw data pipelines and executive decision-making. Whether modeling <strong className="text-cyan-300">workforce skill gap disparities</strong> across engineering branches, processing real-time <strong className="text-cyan-300">IoT sensor telemetry</strong> for clean water ATM networks, predicting <strong className="text-cyan-300">RFID transaction surges</strong>, or engineering institutional <strong className="text-cyan-300">Power BI & SQL academic dashboards</strong>, I focus on measurable outcomes.
             </p>
             <p>
-              I especially enjoy the investigative side of data: isolating hidden outliers, engineering domain-specific features, automating repetitive ETL pipelines, and synthesizing complex numbers into crisp, boardroom-ready narratives.
+              I especially enjoy the investigative side of data: isolating hidden outliers, engineering domain-specific features, automating repetitive Python ETL workflows, and synthesizing complex numbers into crisp, boardroom-ready narratives.
             </p>
 
             {/* Core Values / Strengths */}

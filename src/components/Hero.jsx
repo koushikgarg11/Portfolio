@@ -137,17 +137,17 @@ export default function Hero() {
               {/* Dynamic Code & Model Visualization */}
               <div className="mt-4 space-y-3 font-mono text-xs">
                 <div className="rounded-lg bg-black/40 p-3 text-slate-300 border border-white/5">
-                  <p className="text-slate-500"># Model Training & Forecast Pipeline</p>
-                  <p className="text-cyan-300">from statsmodels.tsa.arima import ARIMA</p>
-                  <p className="text-violet-300">model = ARIMA(train_data, order=(2,1,2))</p>
-                  <p className="text-emerald-400 mt-1">✓ Accuracy Gain: +18.4% YoY</p>
+                  <p className="text-slate-500"># Skill Gap & IoT Telemetry Pipeline</p>
+                  <p className="text-cyan-300">df_telemetry = pd.read_sql(query, conn)</p>
+                  <p className="text-violet-300">gap_score = anova_test(curriculum, industry)</p>
+                  <p className="text-emerald-400 mt-1">✓ Network Uptime: 94.2% | Nodes: 25</p>
                 </div>
 
                 {/* Simulated Mini Chart Bars */}
                 <div className="rounded-lg bg-white/[0.02] p-3 border border-white/5">
                   <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2 font-sans font-medium">
-                    <span>Forecast vs Actual Demand</span>
-                    <span className="text-cyan-300">95% Conf. Interval</span>
+                    <span>Dispensing & Demand Curve</span>
+                    <span className="text-cyan-300">Live Telemetry</span>
                   </div>
                   <div className="flex items-end gap-1.5 h-16 pt-2">
                     {[45, 60, 52, 78, 65, 88, 92, 84, 96, 110, 105, 118].map((h, i) => (
@@ -172,8 +172,8 @@ export default function Hero() {
                     <span className="text-sm font-bold text-amber-300">Top 1%</span>
                   </div>
                   <div className="rounded-lg border border-white/10 bg-white/[0.02] p-2 text-center font-sans">
-                    <span className="text-[10px] text-slate-400 block uppercase tracking-wider">False Positive Cut</span>
-                    <span className="text-sm font-bold text-emerald-400">~18%</span>
+                    <span className="text-[10px] text-slate-400 block uppercase tracking-wider">Student Records</span>
+                    <span className="text-sm font-bold text-emerald-400">4,500+</span>
                   </div>
                 </div>
               </div>

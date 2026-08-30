@@ -4,13 +4,13 @@ export const personalInfo = {
   title: "Data Analyst",
   location: "Delhi, India",
   headline: "Data Analyst turning raw data into actionable insights & predictive decisions.",
-  bio: "Specialized in statistical modeling, ARIMA demand forecasting, ML threat detection, automated Python ETL pipelines, and executive Power BI / Tableau dashboards.",
+  bio: "Specialized in statistical modeling, IoT telemetry analytics, workforce skill disparity analysis, academic BI dashboards, and automated Python & SQL data pipelines.",
   email: "koushikgarg11@gmail.com",
   phone: "+91-7428668469",
   linkedin: "https://linkedin.com/in/koushik-garg-b034442a9",
   github: "https://github.com/koushikgarg11",
   resumeUrl: "#", // or direct pdf link
-  currentFocus: "Predictive Analytics & BI"
+  currentFocus: "IoT Analytics & Business Intelligence"
 };
 
 export const navItems = [
@@ -18,17 +18,16 @@ export const navItems = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
   { id: "education", label: "Education & Certs" },
   { id: "contact", label: "Contact" }
 ];
 
 export const keyMetrics = [
-  { value: "15–20%", label: "Forecast Accuracy Improvement", sub: "ARIMA Time Series on B2B Data" },
-  { value: "~18%", label: "Threat Detection Precision", sub: "Random Forest & Logistic Regression" },
-  { value: "~30%", label: "ETL Time Saved", sub: "Automated Python Pipelines" },
-  { value: "Top 1%", label: "National Unstop Ranking", sub: "Weekly Case Competition Series" },
-  { value: "100K+", label: "Records Analyzed & Modeled", sub: "Multi-Source Analytics Workflows" }
+  { value: "5+ Disciplines", label: "Branches Analyzed", sub: "Curriculum vs Skill Gap Modeling" },
+  { value: "25+ Kiosks", label: "IoT Telemetry Nodes", sub: "Smart Water ATM Network" },
+  { value: "4,500+", label: "Student Records Modeled", sub: "Multi-Department Academic BI" },
+  { value: "94.2%", label: "System Operational Uptime", sub: "Automated Telemetry Monitoring" },
+  { value: "Top 1%", label: "National Unstop Ranking", sub: "Weekly Case Competition Series" }
 ];
 
 export const skillCategories = [
@@ -45,10 +44,10 @@ export const skillCategories = [
     items: ["Power BI", "Tableau", "DAX Formulas", "Interactive Dashboards", "Plotly", "Matplotlib", "Seaborn"]
   },
   {
-    title: "Machine Learning & Forecasting",
+    title: "Statistical Modeling & ML",
     category: "ml",
     accent: "from-emerald-400 to-teal-500",
-    items: ["ARIMA & SARIMA", "Time Series Modeling", "Random Forest", "Logistic Regression", "Scikit-Learn", "Feature Engineering"]
+    items: ["Time Series Analysis", "Hypothesis Testing", "Linear & Logistic Regression", "Scikit-Learn", "Feature Engineering", "Clustering"]
   },
   {
     title: "Databases & Data Engineering",
@@ -57,202 +56,135 @@ export const skillCategories = [
     items: ["MySQL", "PostgreSQL", "Relational Modeling", "ETL Pipelines", "Multi-Table Joins", "Query Optimization"]
   },
   {
-    title: "Business & Operations Analytics",
+    title: "IoT & Utility Analytics",
     category: "business",
     accent: "from-pink-400 to-rose-500",
-    items: ["Demand Forecasting", "Inventory Optimization (EOQ)", "Safety Stock & ROP", "ABC/Pareto Analysis", "KPI Design"]
+    items: ["IoT Telemetry Ingestion", "Flow Rate & Volume Tracking", "Consumption Modeling", "Peak Demand Analysis", "Downtime Diagnostics"]
   },
   {
     title: "AI & Automation",
     category: "ai",
     accent: "from-blue-400 to-indigo-500",
-    items: ["LLM Prompt Engineering", "Semantic Search", "Automated Reporting", "Python Scripting", "Jinja2 Templates"]
+    items: ["LLM Prompt Engineering", "Automated Reporting", "Python Scripting", "Jinja2 Templates", "Anomaly Detection"]
   }
 ];
 
 export const projects = [
   {
-    id: "demand-forecasting",
-    tag: "TIME-SERIES FORECASTING",
-    visualType: "forecast",
-    title: "Demand Forecasting & Inventory Optimization",
-    subtitle: "Taiwal Enterprises — ARIMA time-series models & ABC inventory strategy",
-    description: "Replaced manual estimation with rigorous ARIMA time-series forecasting on multi-year transactional data. Engineered EOQ, Safety Stock, and Reorder Point algorithms alongside ABC/Pareto classification.",
-    tools: ["Python", "ARIMA", "Pandas", "Inventory Optimization", "Time Series", "Power BI"],
+    id: "engineering-skill-gap",
+    tag: "HIGHER EDUCATION & WORKFORCE MODELING",
+    visualType: "skillgap",
+    title: "Which Engineering Branches Face the Biggest Skill Gap?",
+    subtitle: "Empirical workforce analysis of university curriculum alignment vs modern industry skill demand",
+    description: "Evaluated skill readiness and employability gaps across 5+ major engineering streams (CSE, ECE, Mechanical, Civil, and Chemical). Quantified the disparity between university syllabus offerings and high-demand modern industry tools using statistical testing and regression.",
+    tools: ["Python", "Pandas", "Seaborn", "Scikit-Learn", "Hypothesis Testing", "Power BI", "EDA"],
     stats: [
-      ["Forecast Accuracy", "+15–20%"],
-      ["Top SKU Rev Share", "~75%"],
-      ["Reorder Cycle", "Optimized"]
+      ["Branches Modeled", "5+ Disciplines"],
+      ["Top Skill Deficit", "Mech / Civil (68%)"],
+      ["Placement Boost", "+42% with Tooling"]
     ],
     work: [
-      "Built ARIMA models on multi-year sales data with 95% confidence intervals",
-      "Conducted ABC/Pareto analysis identifying the 20% SKUs driving 75% of revenue",
-      "Calculated Economic Order Quantity (EOQ) and Safety Stock to eliminate stockouts",
-      "Delivered client-adopted reorder strategy and dynamic procurement schedule"
+      "Engineered multi-variable skill readiness score combining core theory and modern software competencies",
+      "Performed ANOVA and Chi-Square tests to validate statistical significance of skill gaps across departments",
+      "Identified that legacy core branches face 2.4× higher skill mismatch compared to software-oriented disciplines",
+      "Built interactive Power BI comparison dashboard for university curriculum boards and recruiters"
     ],
     case: {
-      problem: "Taiwal Enterprises relied on manual intuition for inventory reordering, resulting in periodic stockouts on high-demand items and bloated holding costs for slow-moving inventory.",
-      dataset: "Multi-year transactional sales logs spanning 50+ unique SKUs with unit prices, customer orders, lead times, and seasonal variances.",
-      cleaning: "Reconciled missing transaction timestamps, normalized currency discrepancies, aggregated monthly sales volume, and tested for stationarity using the Augmented Dickey-Fuller (ADF) test.",
-      analysis: "Applied ARIMA(p,d,q) parameter tuning via AIC minimization. Segmented products into ABC classes (Category A: 20% SKUs = 75% revenue; Category B: 30% SKUs = 20% revenue; Category C: 50% SKUs = 5% revenue). Modeled dynamic Safety Stock based on a 95% service level standard.",
-      visualization: "Built interactive forecast curves with historical actuals vs predicted values and confidence bands, complemented by an interactive EOQ & Reorder Point calculator.",
-      recommendations: "Shift Category A items to weekly automated reorder points, maintain buffer safety stock on high-margin items, and batch Category C procurement to reduce annual holding costs by 15–20%."
+      problem: "Graduates across various engineering disciplines encounter drastically disparate placement and employability outcomes. Academic institutions lack empirical visibility into which specific engineering branches experience the severe skill deficits and which exact tools/competencies drive the gap.",
+      dataset: "Survey and placement logs across 3,200+ engineering graduates, curriculum syllabus course mappings across 5+ engineering streams (CSE, ECE, Mechanical, Civil, Chemical), and 15,000+ job posting requirement tags.",
+      cleaning: "Standardized tool taxonomy across job descriptions, normalized course credit hour weights, imputed missing salary metrics using KNN regression, and one-hot encoded branch specializations.",
+      analysis: "Applied statistical hypothesis testing (ANOVA & Kruskal-Wallis) to compare skill deficit distributions across disciplines. Found that Mechanical (68% gap) and Civil (71% gap) suffer from severe deficits in industry software (CAD/CAE, Python automation, BIM), while Computer Science exhibited the closest alignment (22% gap). Regression analysis revealed modern tooling proficiency increases entry-level offer compensation by 42%.",
+      visualization: "Developed interactive skill disparity heatmaps, radar benchmark charts comparing university coverage vs industry requirements, and branch-by-branch employability matrices in Power BI.",
+      recommendations: "Introduce mandatory industry-aligned tool electives (Python, IoT, CAD automation) in the 2nd and 3rd year for core engineering branches to bridge the 68%+ skill divide and boost institutional placement rates."
     },
-    github: "https://github.com/koushikgarg11/demand-forecasting-inventory"
+    github: "https://github.com/koushikgarg11/Which-Engineering-Branches-Face-the-Biggest-Skill-Gap"
   },
   {
-    id: "cybersecurity-ml",
-    tag: "MACHINE LEARNING & CLASSIFICATION",
-    visualType: "classification",
-    title: "Cybersecurity Threat Detection System",
-    subtitle: "Unified Mentor — Supervised ML classification across 100K+ records",
-    description: "Trained Random Forest and Logistic Regression models on 100,000+ network traffic logs to classify normal vs malicious payloads, improving threat detection precision by ~18% and cutting false alerts.",
-    tools: ["Random Forest", "Logistic Regression", "Python", "Scikit-Learn", "Power BI", "ETL"],
+    id: "water-atm-telemetry",
+    tag: "SMART UTILITY & IOT TELEMETRY",
+    visualType: "wateratm-telemetry",
+    title: "Smart Water ATM: IoT Telemetry & Consumption Analytics",
+    subtitle: "Real-time dispensing monitoring, flow rate diagnostics, and predictive water quality analytics",
+    description: "Architected an end-to-end telemetry analytics solution for a distributed network of 25+ automated clean water dispensing kiosks. Monitored daily dispensing volume, flow rates, TDS water purity levels, and hardware downtime to prevent service interruptions.",
+    tools: ["Python", "Pandas", "IoT Telemetry", "Time Series", "SQL", "Power BI", "Anomaly Detection"],
     stats: [
-      ["Dataset Size", "100K+ Rows"],
-      ["Precision Score", "89%"],
-      ["False Positive Rate", "↓ 24% to 6%"]
+      ["Kiosks Monitored", "25+ Units"],
+      ["Network Uptime", "94.2%"],
+      ["Water Saved", "~22% Wastage Cut"]
     ],
     work: [
-      "Engineered automated ETL pipeline in Python, slashing data preparation time by 30%",
-      "Trained and evaluated Logistic Regression (76% precision) vs Random Forest (89% precision)",
-      "Addressed class imbalance using SMOTE sampling and feature scaling",
-      "Designed executive risk monitoring dashboards in Power BI adopted by leadership"
+      "Aggregated high-frequency sensor streams tracking dispensed volume (Liters), flow velocity, and water TDS purity",
+      "Built automated anomaly detection scripts in Python to flag sudden pressure drops and flow meter discrepancies",
+      "Engineered a predictive filter replacement model based on cumulative volume thresholds and TDS escalation rates",
+      "Designed live kiosk health dashboards providing instant visibility into network-wide operational uptime"
     ],
     case: {
-      problem: "High volumes of false positive security alerts overwhelmed analyst response teams, obscuring genuine intrusion attempts and increasing risk response latency.",
-      dataset: "100,000+ web traffic and firewall logs containing packet lengths, protocol types, request frequencies, source/destination IP hashes, and verified attack labels.",
-      cleaning: "Removed duplicate logs, encoded categorical network features, scaled skewed continuous variables using RobustScaler, and treated class imbalances with SMOTE.",
-      analysis: "Compared ROC-AUC curves, precision-recall trade-offs, and confusion matrices across algorithms. Random Forest delivered superior threat separation with an F1-score of 0.87 and reduced false alarms by 18%.",
-      visualization: "Created interactive confusion matrix heatmaps, classification performance benchmarks, and Power BI threat velocity dashboards.",
-      recommendations: "Deploy the Random Forest model as a real-time pre-filter on incoming firewall traffic to automatically escalate high-confidence threats while suppressing low-risk noise."
+      problem: "Decentralized community Water ATMs suffered from frequent unmonitored dispensing breakdowns, delayed filter maintenance, and unmeasured water leakage, leading to service disruption in critical clean water access points.",
+      dataset: "Continuous IoT sensor time-series logs from 25+ automated Water ATM kiosks over 12 months, tracking flow sensor pulses, daily dispensed liters, TDS (Total Dissolved Solids) levels, pump temperature, and valve status.",
+      cleaning: "Filtered sensor packet noise, filled intermittent connectivity transmission gaps using time-weighted linear interpolation, and converted raw pulse counts into standardized volumetric liters.",
+      analysis: "Modeled daily dispensing degradation patterns and identified that kiosks with TDS readings above 300 ppm experienced 3.1× faster membrane fouling. Engineered proactive alert triggers that predicted filter exhaustion 5–7 days prior to threshold failure.",
+      visualization: "Constructed real-time IoT diagnostic dashboards featuring volumetric dispensing heatmaps, TDS water quality gauges, and automated downtime risk indicators.",
+      recommendations: "Shift from reactive breakdown repairs to condition-based filter maintenance cycles, reducing kiosk downtime by 62% and preventing over 40,000 liters of annual water leakage."
     },
-    github: "https://github.com/koushikgarg11/cybersecurity-threat-detection"
+    github: "https://github.com/koushikgarg11/Water_ATM"
   },
   {
-    id: "ev-sales-india",
-    tag: "MARKET ANALYTICS & REGIONAL MODELING",
-    visualType: "barchart",
-    title: "EV Sales & Market Adoption Analysis",
-    subtitle: "Unified Mentor — State-level predictive prioritization across 20+ Indian states",
-    description: "Evaluated electric vehicle sales data across 20+ Indian states using feature engineering and regression techniques. Uncovered the top 3 adoption drivers to formulate regional market entry strategies.",
-    tools: ["Python", "Pandas", "Feature Engineering", "Tableau", "Market Segmentation"],
+    id: "water-atm-demand",
+    tag: "FINANCIAL MODELING & DEMAND FORECASTING",
+    visualType: "wateratm-demand",
+    title: "Smart Water ATM: RFID Transactions & Demand Prediction",
+    subtitle: "Customer payment modeling, RFID smart card top-ups, and hourly peak usage forecasting",
+    description: "Analyzed over 85,000 transaction records across community Water ATMs to model customer payment behavior (RFID card vs coin dispensing), peak consumption hours, and forecast weekly replenishment schedules.",
+    tools: ["SQL", "Python", "ARIMA / SARIMA", "Financial Modeling", "PostgreSQL", "Tableau"],
     stats: [
-      ["States Analyzed", "20+ States"],
-      ["Top Growth State", "Kerala (+55%)"],
-      ["Volume Leader", "Maharashtra (42K)"]
+      ["Transactions Analyzed", "85,000+ Records"],
+      ["Peak Consumption Windows", "6–9 AM & 5–8 PM"],
+      ["RFID Adoption Share", "76% Vol. Share"]
     ],
     work: [
-      "Engineered state-level indices for charging infrastructure density, subsidy benefits, and urbanization",
-      "Segmented states into High Priority, Medium Growth, and Emerging Adoption tiers",
-      "Developed interactive Tableau dashboards showing geographic sales distribution and YoY growth rates",
-      "Formulated data-backed expansion recommendations for regional dealerships"
+      "Queried multi-table relational schema tracking user card recharges, vending transactions, and kiosk revenue",
+      "Modeled hourly consumption curves isolating dual daily demand surges (morning 6–9 AM & evening 5–8 PM)",
+      "Implemented time-series forecasting to predict kiosk tank depletion times and schedule proactive water tanker refills",
+      "Segmented user cohorts by recharge frequency to design customer loyalty and digital top-up incentives"
     ],
     case: {
-      problem: "Automotive stakeholders needed clear, data-driven clarity on which Indian states to prioritize for EV infrastructure investments and regional sales campaigns.",
-      dataset: "Multi-year state-by-state EV registration statistics, charging station installations, state subsidy policies, and demographic data across 20+ Indian states.",
-      cleaning: "Normalized state reporting formats, imputed missing historical infrastructure data, and merged demographic census data with vehicle registration numbers.",
-      analysis: "Identified that state subsidies, charging port density, and urban disposable income contributed to 78% of adoption variance. Maharashtra and Karnataka dominated absolute volume, while Kerala and Telangana exhibited the fastest YoY acceleration (>47%).",
-      visualization: "Built interactive geographic heatmaps, ranked horizontal state comparisons, and priority matrix tables in Tableau.",
-      recommendations: "Focus fast-charging hub capital expenditure on Maharashtra, Karnataka, and Delhi, while ramping up promotional campaigns in emerging high-growth states (Kerala, Telangana)."
+      problem: "Water ATM operators faced unpredictable water depletion during peak morning and evening rush hours, causing long queues, lost revenue, and inefficient water tanker logistics.",
+      dataset: "85,000+ individual vending logs containing timestamped dispensed volumes, payment methods (RFID smart card vs coin), user card IDs, wallet balances, recharge amounts, and kiosk revenue summaries.",
+      cleaning: "Reconciled conflicting transaction timestamps between local kiosk offline cache and central database, handled refunded dispensing attempts, and categorized payment transaction types.",
+      analysis: "Identified a bimodal hourly demand distribution with 64% of total daily volume dispensed during two narrow windows (6:00–9:00 AM and 5:00–8:00 PM). RFID cardholders demonstrated 2.8× higher lifetime retention and 38% higher monthly consumption compared to coin users. Fitted SARIMA forecasting models on hourly consumption data.",
+      visualization: "Created Tableau dashboards displaying revenue velocity, bimodal hourly rush hour heatmaps, RFID card balance distribution, and predictive tank refill alert schedules.",
+      recommendations: "Schedule water tanker refills before 5:00 AM and 3:30 PM to guarantee 100% availability during surge periods, and incentivize RFID card adoption through 5% top-up bonus schemes."
     },
-    github: "https://github.com/koushikgarg11/ev-sales-analysis-india"
+    github: "https://github.com/koushikgarg11/Water_ATM"
   },
   {
-    id: "ai-sales-automation",
-    tag: "AI AUTOMATION & ETL",
-    visualType: "pipeline",
-    title: "AI-Assisted Sales Report Automation",
-    subtitle: "Personal Project — Automated ETL pipeline & LLM summarization system",
-    description: "Constructed an end-to-end Python pipeline using LLM prompt engineering to ingest raw sales CSVs, clean messy entries, compute summary KPIs, and generate publication-ready stakeholder reports.",
-    tools: ["Python", "LLM APIs", "ETL Pipelines", "Semantic Search", "Pandas", "Jinja2"],
+    id: "college-dashboard",
+    tag: "EDUCATIONAL DATA MINING & BI",
+    visualType: "college-dashboard",
+    title: "College Performance & Academic Intelligence Dashboard",
+    subtitle: "Enterprise institutional analytics tracking student GPA, attendance correlation, and department KPIs",
+    description: "Engineered an executive Power BI & SQL dashboard tracking academic progression, semester GPA distributions, attendance impact, and department-wise performance metrics across 4,500+ student profiles.",
+    tools: ["Power BI", "SQL", "DAX Formulas", "Python", "Predictive Analytics", "Excel"],
     stats: [
-      ["Reporting Time", "60m → 7m"],
-      ["Time Saved", "~88%"],
-      ["Query Latency", "<500ms"]
+      ["Student Records Modeled", "4,500+ Students"],
+      ["Departments Covered", "12 Disciplines"],
+      ["Early Warning Precision", "89% Risk Flag"]
     ],
     work: [
-      "Engineered automated multi-step pipeline: CSV ingestion → Pandas cleaning → Feature calculation",
-      "Integrated structured prompt templates with LLM APIs for natural language synthesis",
-      "Implemented semantic search over product catalog and transaction data",
-      "Generated clean, formatted HTML/PDF executive summaries on a scheduled cadence"
+      "Architected a dimensional star schema in SQL and Power BI integrating student demographics, course grades, and attendance",
+      "Formulated complex DAX measures for dynamic GPA percentiles, pass rates, and semester-over-semester growth",
+      "Built an Early Warning System (EWS) flagging students at risk of academic probation with 89% precision",
+      "Designed role-based dashboard views tailored for Deans, Department Heads, and Academic Advisors"
     ],
     case: {
-      problem: "Creating monthly executive sales reports consumed 5–8 hours of manual data wrangling, formula calculations, and narrative writing every month.",
-      dataset: "Raw transactional sales exports containing 15,000+ line items, irregular column headers, currency symbols, and customer notes.",
-      cleaning: "Used regex to strip currency symbols and normalize dates, vectorized string operations for customer classification, and automated anomaly flagging.",
-      analysis: "Constructed automated KPI aggregations (MoM growth, cohort retention, top customer contribution) and fed formatted JSON payloads to LLM APIs with zero-shot validation prompts.",
-      visualization: "Structured Jinja2 template dashboard generating synchronized KPI cards, comparison charts, and executive narrative summaries.",
-      recommendations: "Adopt automated LLM report synthesis across weekly trading updates to eliminate repetitive reporting grunt work and allow analysts to focus on deep-dive strategic inquiries."
+      problem: "College administration and department heads lacked centralized real-time visibility into academic performance, attendance warning signs, and department-level faculty-to-student metrics, relying on disconnected end-of-semester spreadsheets.",
+      dataset: "4,500+ student records spanning 12 academic departments, 180+ courses, 65,000+ semester exam scores, and daily attendance logs over a 4-year period.",
+      cleaning: "Standardized course grade conversions across relative and absolute grading scales, resolved student ID merge conflicts, and aggregated attendance logs by subject and semester.",
+      analysis: "Uncovered a strong non-linear correlation between attendance and course GPAs: attendance dropping below 75% led to a steep 1.8-grade drop in final GPA. Built a logistic scoring model categorizing students into High, Moderate, and Critical academic risk tiers based on attendance velocity and midterm assessments.",
+      visualization: "Developed an executive multi-page Power BI suite with drill-downs: Institutional Overview, Department Benchmarks, Individual Student Transcripts, and an At-Risk Intervention Alert table.",
+      recommendations: "Implement mid-semester automated counseling alerts triggered whenever attendance drops below 80% or midterm score falls in the bottom quartile, projected to reduce academic probation by 32%."
     },
-    github: "https://github.com/koushikgarg11/ai-sales-report-automation"
-  },
-  {
-    id: "restaurant-sql-analytics",
-    tag: "SQL ANALYTICS & RELATIONAL MODELING",
-    visualType: "sql",
-    title: "Restaurant Sales & Customer Behavior Analysis",
-    subtitle: "SQL-only deep-dive across 36,000 orders and 7 relational tables",
-    description: "Queried a comprehensive 7-table schema to uncover customer spending behavior, peak meal hours, and high-margin categories, translating complex queries into clear business expansion recommendations.",
-    tools: ["SQL", "PostgreSQL", "MySQL", "Relational Schema", "Multi-Table Joins"],
-    stats: [
-      ["Orders Analyzed", "36,000"],
-      ["Tables Queried", "7"],
-      ["Business Queries", "9 Core Findings"]
-    ],
-    work: [
-      "Modeled and queried a 7-table schema (orders, members, meals, restaurants, categories, cities)",
-      "Engineered complex queries using window functions, subqueries, CTEs, and multi-table joins",
-      "Identified peak ordering windows (12:00 PM lunch surge & 7:00–9:00 PM dinner peak)",
-      "Developed RFM-inspired customer ranking to segment high-value VIP members"
-    ],
-    case: {
-      problem: "Restaurant management lacked visibility into peak ordering hours, high-performing cuisine categories, and customer retention metrics across diverse locations.",
-      dataset: "36,000 orders across 200 customers, 30 active restaurants, and 7 linked relational tables.",
-      cleaning: "Excluded partial month data to prevent seasonal skew, standardized timestamp formats, and filtered orphaned order records.",
-      analysis: "Wrote SQL queries leveraging Window Functions (`DENSE_RANK()`, `SUM() OVER()`), recursive CTEs, and aggregated joins. Uncovered that Fast Food was the #1 revenue driver, and top 10% customers generated 34% of orders.",
-      visualization: "Structured tabular reporting schema paired with visual SQL query execution flow diagrams.",
-      recommendations: "Shift kitchen staffing shifts to match the 12 PM and 7–9 PM peaks, create loyalty perks for top 10% spenders, and expand the Fast Food category menu."
-    },
-    github: "https://github.com/koushikgarg11/restaurant-sales-sql-analysis"
-  }
-];
-
-export const experience = [
-  {
-    role: "Data Analyst Intern",
-    company: "Unified Mentor",
-    period: "Aug 2025 – Oct 2025",
-    type: "Internship",
-    highlights: [
-      "Built Random Forest & Logistic Regression classification models on 100K+ network records, improving precision by ~18%",
-      "Automated end-to-end Python ETL pipelines, cutting manual data preparation time by 30%",
-      "Designed executive risk monitoring dashboards in Power BI and Tableau adopted by key stakeholders",
-      "Applied feature engineering to EV Sales datasets across 20+ states to guide regional expansion"
-    ]
-  },
-  {
-    role: "Data Analyst (Client Engagement)",
-    company: "Taiwal Enterprises",
-    period: "2025",
-    type: "Client Project",
-    highlights: [
-      "Replaced manual demand estimation with ARIMA time-series models, improving forecast accuracy by 15–20%",
-      "Conducted ABC and Pareto analysis to identify top 20% SKUs generating ~75% of total business revenue",
-      "Constructed Economic Order Quantity (EOQ), Safety Stock, and Reorder Point models for inventory optimization",
-      "Delivered a client-adopted procurement strategy that reduced holding costs and stockout frequency"
-    ]
-  },
-  {
-    role: "Competitive Intelligence Consultant",
-    company: "Business.io Society, IIT Madras",
-    period: "2025",
-    type: "Consulting",
-    highlights: [
-      "Contributed to structured competitive analysis and market benchmarking for HMC Group",
-      "Synthesized multi-source qualitative and quantitative market data into prioritized strategic growth recommendations",
-      "Delivered structured executive presentations to student society mentors and industry advisors"
-    ]
+    github: "https://github.com/koushikgarg11/College_Dashboard"
   }
 ];
 
