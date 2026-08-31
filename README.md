@@ -87,17 +87,44 @@ ACC_CHAT_BOT/
    ```
    Then add your API keys if you want to use cloud providers.
 
-5. Run the app
+5. Run the FastAPI app
    ```bash
    python app.py
    ```
    The service will start on:
    - http://127.0.0.1:8000/
 
-6. Run tests
+6. Run the Streamlit app for deployment-friendly UI
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+   The app will launch locally on:
+   - http://localhost:8501
+
+7. Run tests
    ```bash
    python -m pytest test_app.py -q
    ```
+
+## Streamlit deployment
+
+This project now supports a Streamlit version for simple hosting and quick deployment on platforms like Streamlit Cloud, Render, or Railway.
+
+### Deploy to Streamlit Cloud
+
+1. Push this repo to GitHub.
+2. Open Streamlit Cloud.
+3. Create a new app and select this repository.
+4. Set the main file to `streamlit_app.py`.
+5. Add your environment variables if needed.
+
+### Local streamlit run
+
+```bash
+streamlit run streamlit_app.py
+```
+
+This Streamlit interface reuses the same ACC knowledge base and AI logic, but presents it in a simpler, deploy-friendly dashboard format.
 
 ## Environment variables
 
