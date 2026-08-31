@@ -1,13 +1,37 @@
 import asyncio
-from typing import List
+import os
+from typing import List, Optional
 
+import httpx
 import streamlit as st
 
-from app.api.career_match import ProfileEvaluationRequest, evaluate_profile
-from app.knowledge.rag_engine import rag_engine
-from app.services.llm_service import llm_service
-
 st.set_page_config(page_title="ACC Chat Bot", page_icon="🤖", layout="wide")
+
+# --- Build the knowledge base before importing the FastAPI app (same as app.py did) ---
+_APP_DIR = os.path.dirname(os.path.abspath(__file__))
+_DATA_FILE = os.path.join(_APP_DIR, "app", "data", "knowledge_base.json")
+
+if not os.path.exists(_DATA_FILE):
+    with st.spinner("Indexing ACC knowledge base from PDFs and website (first run only)..."):
+        from app.knowledge.indexer import build_knowledge_base
+        build_knowledge_base()
+
+from app.main import app as fastapi_app          # the real FastAPI app — called in-process below
+from app.knowledge.rag_engine import rag_engine  # only for the doc-filter dropdown; no route lists source names
+
+
+async def call_api(method: str, path: str, **kwargs):
+    """
+    Calls a route on `fastapi_app` directly through its ASGI interface.
+    No server is started, no port is opened, nothing touches localhost —
+    httpx hands the request straight to FastAPI's routing/validation/handler
+    code in memory and hands back the same response a real HTTP call would.
+    """
+    transport = httpx.ASGITransport(app=fastapi_app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://internal") as client:
+        resp = await client.request(method, path, **kwargs)
+        resp.raise_for_status()
+        return resp.json()
 
 
 @st.cache_data
@@ -16,60 +40,15 @@ def get_doc_options() -> List[str]:
     return ["all"] + docs
 
 
-def get_followup_suggestions(query: str) -> List[str]:
-    q_low = query.lower()
-    if any(x in q_low for x in ["2027", "2028", "2029", "student", "internship"]):
-        return [
-            "Is the 2027-2029 internship 100% free?",
-            "What is the stipend for top performing interns?",
-            "How do I apply for the college internship?",
-            "What skills will I learn during the internship?",
-        ]
-    if any(x in q_low for x in ["2026", "placement", "datayug"]):
-        return [
-            "What are the 3 options under the DataYug Project?",
-            "What placement support does ACC provide until placed?",
-            "Which tools are covered in the placement program?",
-        ]
-    if any(x in q_low for x in ["scam", "fee", "charge"]):
-        return [
-            "How do I verify official ACC communication?",
-            "What programs are paid vs free?",
-            "How to apply for official programs safely?",
-        ]
-    return [
-        "Compare Paid Placement Program vs College Internship",
-        "What is the DataYug Project?",
-        "Who founded Analytics Career Connect?",
-        "What are the official application links?",
-    ]
-
-
-async def generate_chat_reply(message: str, history: List[dict], doc_filter: str) -> tuple[str, str, list, list]:
-    matched_chunks = rag_engine.search(message, top_k=5, source_filter=doc_filter)
-    result = await llm_service.generate_response(
-        query=message,
-        context_chunks=matched_chunks,
-        conversation_history=history,
-        provider="local",
-        company_profile=rag_engine.get_company_profile(),
-        programs=rag_engine.get_all_programs(),
-        doc_filter=doc_filter,
-    )
-    followups = get_followup_suggestions(message)
-    citations = []
-    for chunk in matched_chunks:
-        snippet = chunk.get("content", "")
-        if len(snippet) > 220:
-            snippet = snippet[:220] + "..."
-        citations.append({
-            "source_name": chunk.get("source_name", "ACC Knowledge Base"),
-            "title": chunk.get("title", "ACC Document"),
-            "category": chunk.get("category", "General"),
-            "snippet": snippet,
-            "relevance_score": chunk.get("relevance_score", 0.0),
-        })
-    return result["answer"], result["provider"], citations, followups
+async def generate_chat_reply(message: str, history: List[dict], doc_filter: Optional[str]):
+    payload = {
+        "message": message,
+        "history": history,
+        "provider": None,
+        "doc_filter": doc_filter,
+    }
+    result = await call_api("POST", "/api/chat", json=payload)
+    return result["response"], result["provider"], result["citations"], result["suggested_followups"]
 
 
 st.title("ACC Chat Bot")
@@ -95,9 +74,13 @@ if page == "AI Chat":
             st.markdown(user_input)
 
         with st.spinner("Searching ACC knowledge..."):
-            answer, provider, citations, followups = asyncio.run(
-                generate_chat_reply(user_input, st.session_state.chat_history[:-1], doc_filter)
-            )
+            try:
+                answer, provider, citations, followups = asyncio.run(
+                    generate_chat_reply(user_input, st.session_state.chat_history[:-1], doc_filter)
+                )
+            except httpx.HTTPStatusError as e:
+                st.error(f"API error ({e.response.status_code}): {e.response.text}")
+                st.stop()
 
         st.session_state.chat_history.append({"role": "assistant", "content": answer})
         with st.chat_message("assistant"):
@@ -119,9 +102,13 @@ if page == "AI Chat":
 elif page == "Programs":
     st.subheader("ACC Programs")
     batch_filter = st.selectbox("Filter by batch", ["All", 2025, 2026, 2027, 2028, 2029])
-    programs = rag_engine.get_all_programs()
-    if batch_filter != "All":
-        programs = rag_engine.get_program_by_batch(batch_filter)
+    params = {} if batch_filter == "All" else {"batch": batch_filter}
+    try:
+        result = asyncio.run(call_api("GET", "/api/programs", params=params))
+    except httpx.HTTPStatusError as e:
+        st.error(f"API error ({e.response.status_code}): {e.response.text}")
+        st.stop()
+    programs = result["programs"]
 
     for program in programs:
         with st.container():
@@ -146,14 +133,19 @@ elif page == "Career Match":
 
     if submitted:
         skills_list = [s.strip() for s in current_skills.split(",") if s.strip()]
-        payload = ProfileEvaluationRequest(
-            graduation_year=int(graduation_year),
-            current_skills=skills_list,
-            knowledge_level=knowledge_level,
-            weekly_hours=int(weekly_hours),
-            target_role=target_role,
-        )
-        result = asyncio.run(evaluate_profile(payload))
+        payload = {
+            "graduation_year": int(graduation_year),
+            "current_skills": skills_list,
+            "knowledge_level": knowledge_level,
+            "weekly_hours": int(weekly_hours),
+            "target_role": target_role,
+        }
+        try:
+            result = asyncio.run(call_api("POST", "/api/career-match", json=payload))
+        except httpx.HTTPStatusError as e:
+            st.error(f"API error ({e.response.status_code}): {e.response.text}")
+            st.stop()
+
         st.success(result["status"])
         st.markdown(f"### {result['track_title']}")
         st.write(result["summary"])
@@ -167,7 +159,11 @@ elif page == "Career Match":
 
 else:
     st.subheader("Company Profile")
-    company = rag_engine.get_company_profile()
+    try:
+        company = asyncio.run(call_api("GET", "/api/company"))
+    except httpx.HTTPStatusError as e:
+        st.error(f"API error ({e.response.status_code}): {e.response.text}")
+        st.stop()
     if company:
         st.write(company)
     else:
