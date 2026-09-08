@@ -18,7 +18,8 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-html, body, [class*="css"], [class*="st-"] {
+/* Apply font to text elements while preserving icon fonts */
+html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, select, button {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #f8fafc;
 }
@@ -181,31 +182,45 @@ header {visibility: hidden;}
     box-shadow: 0 6px 25px rgba(34, 211, 238, 0.4) !important;
 }
 
-/* Expander Overrides */
-.streamlit-expanderHeader {
-    background: rgba(15, 23, 42, 0.7) !important;
+/* Streamlit Expander Overrides — Preserves Chevron Icon Font */
+details[data-testid="stExpander"] {
+    background: rgba(9, 17, 34, 0.7) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 14px !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.25rem !important;
+}
+details[data-testid="stExpander"] > summary {
     color: #22d3ee !important;
     font-weight: 600 !important;
+    padding: 0.65rem 1rem !important;
+    border-radius: 14px !important;
 }
-.streamlit-expanderContent {
+details[data-testid="stExpander"] > summary:hover {
+    color: #67e8f9 !important;
+    background: rgba(34, 211, 238, 0.05) !important;
+}
+details[data-testid="stExpander"][open] > summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+details[data-testid="stExpander"] > div[data-testid="stExpanderDetails"] {
+    padding: 1.25rem !important;
     background: #091122 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-top: none !important;
     border-radius: 0 0 14px 14px !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Helper for Dark Plotly Styling ────────────────────────────────────────────
-def apply_dark_theme(fig, height=330):
+def apply_dark_theme(fig, height=330, left_margin=40):
     fig.update_layout(
         template="plotly_dark",
         plot_bgcolor="rgba(6, 11, 20, 0.9)",
         paper_bgcolor="rgba(6, 11, 20, 0)",
         font=dict(family="Inter, sans-serif", color="#cbd5e1", size=11),
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin=dict(l=left_margin, r=20, t=40, b=20),
         height=height,
         legend=dict(
             orientation="h",
@@ -461,7 +476,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Plotly Visual 1: AHP/TOPSIS Corridor Gap Ranking
+# Plotly Visual 1: AHP/TOPSIS Corridor Gap Ranking (With generous left margin to prevent clipping)
 corridors = ["NH-48 (Delhi-Jaipur)", "NH-44 (Delhi-Agra)", "Western Peripheral Expwy", "NE-3 (Delhi-Meerut)", "NH-9 (Delhi-Moradabad)"]
 gap_scores = [92, 84, 78, 65, 58]
 topsis_scores = [0.88, 0.81, 0.74, 0.63, 0.55]
@@ -474,7 +489,7 @@ fig_ev = px.bar(
 )
 fig_ev.update_traces(texttemplate='%{text}/100', textposition='outside')
 fig_ev.update_layout(yaxis=dict(categoryorder='total ascending'))
-apply_dark_theme(fig_ev, height=280)
+apply_dark_theme(fig_ev, height=290, left_margin=180)
 st.plotly_chart(fig_ev, use_container_width=True)
 
 with st.expander("📖 View Full Case Study — ChargeDesert EV Infrastructure Platform"):
@@ -520,7 +535,7 @@ fig_water = go.Figure(data=[go.Pie(
     marker=dict(colors=colors_pie), textinfo="label+percent"
 )])
 fig_water.update_layout(title="Pan-India Water ATM Downtime Failure Root Causes (%)")
-apply_dark_theme(fig_water, height=300)
+apply_dark_theme(fig_water, height=310, left_margin=20)
 st.plotly_chart(fig_water, use_container_width=True)
 
 with st.expander("📖 View Full Case Study — Water ATM Downtime Atlas"):
@@ -565,7 +580,7 @@ fig_ai = go.Figure()
 fig_ai.add_trace(go.Bar(name="Manual Workflow (Hours)", x=tasks, y=manual_hrs, marker_color="#f43f5e"))
 fig_ai.add_trace(go.Bar(name="AI-Assisted ETL (Hours)", x=tasks, y=auto_hrs, marker_color="#22d3ee"))
 fig_ai.update_layout(barmode="group", title="Weekly Reporting Hours: Manual Workflow vs AI-Assisted ETL (~40% Saved)")
-apply_dark_theme(fig_ai, height=290)
+apply_dark_theme(fig_ai, height=290, left_margin=30)
 st.plotly_chart(fig_ai, use_container_width=True)
 
 with st.expander("📖 View Full Case Study — AI-Assisted Sales Report Automation"):
@@ -613,7 +628,7 @@ fig_arima.add_trace(go.Scatter(x=weeks, y=actuals, name="Actual Demand", mode="l
 fig_arima.add_trace(go.Scatter(x=weeks, y=forecast, name="ARIMA(2,1,2) Forecast", mode="lines+markers", line=dict(color="#10b981", width=3, dash="dash")))
 fig_arima.add_trace(go.Scatter(x=weeks + weeks[::-1], y=upper_ci + lower_ci[::-1], fill='toself', fillcolor='rgba(16, 185, 129, 0.12)', line=dict(color='rgba(255,255,255,0)'), name='95% Confidence Interval'))
 fig_arima.update_layout(title="Weekly SKU Demand: Actual Sales vs ARIMA Forecast (+18.4% Accuracy Gain)")
-apply_dark_theme(fig_arima, height=310)
+apply_dark_theme(fig_arima, height=310, left_margin=30)
 st.plotly_chart(fig_arima, use_container_width=True)
 
 with st.expander("📖 View Full Case Study — Taiwal Enterprises Demand Forecasting"):
@@ -658,7 +673,7 @@ fig_radar = go.Figure()
 fig_radar.add_trace(go.Scatterpolar(r=hmc_vals, theta=categories, fill='toself', name='HMC Group', fillcolor='rgba(34, 211, 238, 0.2)', line=dict(color='#22d3ee', width=2)))
 fig_radar.add_trace(go.Scatterpolar(r=comp_vals, theta=categories, fill='toself', name='Industry Benchmark', fillcolor='rgba(148, 163, 184, 0.1)', line=dict(color='#94a3b8', width=2, dash='dash')))
 fig_radar.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 100])), title="HMC Group Competitive Parity & Differentiation Matrix")
-apply_dark_theme(fig_radar, height=320)
+apply_dark_theme(fig_radar, height=320, left_margin=30)
 st.plotly_chart(fig_radar, use_container_width=True)
 
 with st.expander("📖 View Full Case Study — HMC Group Competitive Analysis"):
