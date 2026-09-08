@@ -9,7 +9,9 @@ import {
   LineChart,
   Lightbulb,
   ArrowUpRight,
-  Sparkles
+  Sparkles,
+  FileText,
+  FileDown
 } from "lucide-react";
 
 export default function CaseStudyModal({ project, onClose }) {
@@ -154,7 +156,7 @@ export default function CaseStudyModal({ project, onClose }) {
 
         {/* Modal Footer */}
         <div className="p-4 sm:p-6 bg-[#091122] border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2.5">
             {project.demo && (
               <a
                 href={project.demo}
@@ -168,16 +170,32 @@ export default function CaseStudyModal({ project, onClose }) {
               </a>
             )}
 
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition-all border border-slate-700"
-            >
-              <Github className="w-4 h-4 text-slate-300" />
-              <span>GitHub Repo</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            {project.reportPdf && (
+              <a
+                href={project.reportPdf}
+                download={project.reportName || "Report.pdf"}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white text-xs font-bold transition-all border border-cyan-500/40 hover:border-cyan-400 hover:bg-cyan-500/10"
+              >
+                <FileText className="w-4 h-4 text-cyan-400" />
+                <span>Download Report PDF</span>
+                <FileDown className="w-3.5 h-3.5 text-cyan-400" />
+              </a>
+            )}
+
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition-all border border-slate-700"
+              >
+                <Github className="w-4 h-4 text-slate-300" />
+                <span>GitHub Repo</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
 
           <button

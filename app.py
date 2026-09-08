@@ -340,16 +340,17 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ══════════════════════════════════════════════════════════════════════════════
 # 3. KEY METRICS BAR
 # ══════════════════════════════════════════════════════════════════════════════
-m1, m2, m3, m4, m5 = st.columns(5)
+m1, m2, m3, m4, m5, m6 = st.columns(6)
 metrics_data = [
-    ("130K+", "Geospatial Records", "EV Charging Platform"),
+    ("28K+", "Branch Records", "Pan-India Employability"),
+    ("130K+", "Geospatial Nodes", "EV Charging Platform"),
     ("15–20%", "Forecast Accuracy", "ARIMA Modeling"),
-    ("100K+", "Records Modeled", "ML Threat Classification"),
+    ("44 Tier 1", "Colleges Modeled", "Placement Drivers (r=0.78)"),
     ("Top 1%", "Unstop National Rank", "Weekly Case Challenges"),
     ("~40%", "Reporting Time Saved", "AI & Python ETL Pipelines")
 ]
 
-for col, (val, lbl, sub) in zip([m1, m2, m3, m4, m5], metrics_data):
+for col, (val, lbl, sub) in zip([m1, m2, m3, m4, m5, m6], metrics_data):
     with col:
         st.markdown(f"""
         <div class="metric-box">
@@ -451,13 +452,120 @@ st.markdown("<div id='projects' style='margin-top: 3.5rem;'></div>", unsafe_allo
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 6. FEATURED PROJECTS SECTION (5 Resume Projects with Live Plotly Visuals)
+# 6. FEATURED PROJECTS SECTION (Live Plotly Visuals & Case Studies)
 # ══════════════════════════════════════════════════════════════════════════════
-st.markdown('<div class="eyebrow">Featured Work</div>', unsafe_allow_html=True)
-st.markdown('<h2 class="section-title">Data Science & Analytics Projects</h2>', unsafe_allow_html=True)
-st.markdown('<p class="section-desc">End-to-end analytical solutions, spatial decision intelligence, time-series forecasting, and automated pipelines.</p>', unsafe_allow_html=True)
+st.markdown('<div class="eyebrow">Featured Work & Research</div>', unsafe_allow_html=True)
+st.markdown('<h2 class="section-title">Data Science, Analytics & Research Projects</h2>', unsafe_allow_html=True)
+st.markdown('<p class="section-desc">Production-grade systems, institutional benchmarking databases, pan-India workforce analytics, spatial decision platforms, and time-series forecasting.</p>', unsafe_allow_html=True)
 
-# ── PROJECT 1: CHARGEDESERT EV INFRASTRUCTURE PLATFORM ────────────────────────
+# ── PROJECT 1: TIER 1 ENGINEERING COLLEGE PLACEMENT DRIVER ANALYTICS ──────────
+st.markdown("""
+<div class="glass-card" style="border-left: 4px solid #22d3ee;">
+    <div style="font-size: 0.75rem; font-weight: 700; color: #67e8f9; letter-spacing: 0.15em; text-transform: uppercase;">Benchmarking & Decision Intelligence · 2026</div>
+    <h3 style="font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-top: 0.25rem;">Tier 1 Engineering College Intelligence Database & Placement Drivers</h3>
+    <div style="color: #94a3b8; font-size: 0.85rem; font-weight: 500;">44 Colleges · 18 States · 16 Attributes · Placement vs Max Package (r = 0.78) · Streamlit Dashboard</div>
+    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-top: 0.75rem;">
+        Consolidated fragmented data on 44 Tier 1 Indian engineering colleges across 18 states and 16 structured attributes. Uncovered key placement drivers beyond ranking: strong correlation between placement rate & max package (r = 0.78), Autonomous institutions leading placement averages (89.3%), and NBA accreditation premiums (+2-4%).
+    </p>
+    <div style="margin-top: 0.5rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Statistical Correlation</span>
+        <span class="skill-tag">Streamlit</span>
+        <span class="skill-tag">Power BI</span>
+    </div>
+    <div style="display: flex; gap: 10px; margin-top: 0.75rem; flex-wrap: wrap;">
+        <a href="https://collegedashboard.streamlit.app/" target="_blank" style="display: inline-flex; align-items: center; gap: 4px; background: linear-gradient(135deg, #22d3ee, #3b82f6); color: #060b14; font-weight: 700; font-size: 0.75rem; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">
+            🚀 Launch Live Dashboard ↗
+        </a>
+        <a href="https://github.com/koushikgarg11/College_Dashboard" target="_blank" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #f1f5f9; font-weight: 600; font-size: 0.75rem; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">
+            💻 GitHub Repo ↗
+        </a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Plotly Visual for Tier 1 Colleges: Ownership vs Placement & Max Package
+ownership_types = ["Autonomous", "Government", "Private Tier 1"]
+placement_rates = [89.3, 86.6, 85.2]
+max_packages = [48.5, 44.2, 38.9]
+
+fig_tier1 = go.Figure()
+fig_tier1.add_trace(go.Bar(name="Avg Placement Rate (%)", x=ownership_types, y=placement_rates, marker_color="#22d3ee", text=[f"{v}%" for v in placement_rates], textposition="auto"))
+fig_tier1.add_trace(go.Bar(name="Avg Max CTC (₹ Lakhs)", x=ownership_types, y=max_packages, marker_color="#818cf8", text=[f"₹{v}L" for v in max_packages], textposition="auto"))
+fig_tier1.update_layout(barmode="group", title="Tier 1 Colleges: Placement Rate vs Max Package by Ownership Type (r = 0.78)")
+apply_dark_theme(fig_tier1, height=290, left_margin=30)
+st.plotly_chart(fig_tier1, use_container_width=True)
+
+with st.expander("📖 View Full Case Study — Tier 1 Engineering College Intelligence Database"):
+    st.markdown("""
+    #### 🎯 Business Problem & Context
+    Institutional performance data across India's premier engineering institutions is scattered across disparate rankings, NIRF disclosures, and university brochures. Analytics Career Connect (ACC) required a master benchmark to isolate what measurable factors truly drive student placement success.
+    
+    #### 🔍 Key Findings & Statistical Drivers
+    - **Placement Rate vs Max Package (r = 0.78):** Strong correlation proves recruiter quality and volume reinforce one another.
+    - **NIRF Rank vs Placement (r = -0.55):** Moderate correlation shows headline rank accounts for only ~33% outcome variance.
+    - **Accreditation Premium:** NBA programmatic accredited colleges outperform NAAC-only institutions by 2–4% on average.
+    - **Autonomy Edge:** Autonomous colleges achieve 89.3% average placement rate, leading Government (86.6%) and Private (85.2%).
+    - **Scale vs Quality:** Student intake size and alumni count show near-zero correlation (r = 0.03 each) with placement rate.
+    
+    🔗 **Live Dashboard:** [https://collegedashboard.streamlit.app/](https://collegedashboard.streamlit.app/)  
+    💻 **Source Code:** [https://github.com/koushikgarg11/College_Dashboard](https://github.com/koushikgarg11/College_Dashboard)
+    """)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+
+# ── PROJECT 2: DATAYUG BRANCH-WISE SKILL GAP INTELLIGENCE ─────────────────────
+st.markdown("""
+<div class="glass-card" style="border-left: 4px solid #f43f5e;">
+    <div style="font-size: 0.75rem; font-weight: 700; color: #fda4af; letter-spacing: 0.15em; text-transform: uppercase;">Employability & Workforce Intelligence · 2026</div>
+    <h3 style="font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-top: 0.25rem;">DATAYUG — Pan-India Branch-Wise Skill Gap & Industry Readiness Intelligence</h3>
+    <div style="color: #94a3b8; font-size: 0.85rem; font-weight: 500;">28,091 College-Branch Records · 2,813 Colleges · 483 Locations · 30-Page Research Report</div>
+    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-top: 0.75rem;">
+        Conducted an extensive workforce analytics study evaluating 28,091 college-branch records across 2,813 institutions. Developed a standardized 0–100 Skill Readiness Index & Skill Gap Score, isolating severe tooling shortfalls in Civil and Mechanical branches while establishing internship participation as the #1 placement driver (r = 0.71).
+    </p>
+    <div style="margin-top: 0.5rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">ETL Pipelines</span>
+        <span class="skill-tag">Skill Gap Index (0-100)</span>
+        <span class="skill-tag">Statistical Modeling</span>
+        <span class="skill-tag">Workforce Analytics</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Plotly Visual for Skill Gap: Branch vs Skill Gap Score & Placement
+branches_list = ["Civil", "Mechanical", "EEE", "ECE", "IT", "CSE"]
+skill_gap_scores = [39.5, 34.2, 28.1, 24.5, 15.2, 11.8]
+branch_placements = [60.5, 65.8, 72.4, 76.5, 85.5, 88.2]
+
+fig_gap = go.Figure()
+fig_gap.add_trace(go.Bar(name="Skill Gap Score (0-100)", x=branches_list, y=skill_gap_scores, marker_color="#f43f5e", text=[f"{v}" for v in skill_gap_scores], textposition="auto"))
+fig_gap.add_trace(go.Bar(name="Placement Rate (%)", x=branches_list, y=branch_placements, marker_color="#10b981", text=[f"{v}%" for v in branch_placements], textposition="auto"))
+fig_gap.update_layout(barmode="group", title="DATAYUG: Branch-Wise Skill Gap Score vs Placement Rate (%) across 28,091 Records")
+apply_dark_theme(fig_gap, height=290, left_margin=30)
+st.plotly_chart(fig_gap, use_container_width=True)
+
+with st.expander("📖 View Full Case Study — DATAYUG Branch-Wise Skill Gap Intelligence"):
+    st.markdown("""
+    #### 🎯 Business Problem
+    India produces over 1.5 million engineering graduates annually, yet core branch employability lags significantly behind market demand due to severe curriculum-industry misalignment in modern software tools.
+    
+    #### 📊 Analytics Methodology & Key Findings
+    - **28,091 Records Ingested:** Consolidated records across 2,813 colleges, 483 cities, and 30 institutional categories.
+    - **Skill Gap Formula:** Computed `Skill Gap Score = 100 - Skill Readiness Index` using placement percentage, recruiter demand narrative, and internship exposure.
+    - **Branch Priority Segments:**
+      - *Immediate Priority (Civil & Mechanical):* Missing BIM/Revit, SolidWorks, ANSYS FEA/CFD, and Primavera P6.
+      - *Near-Term (EEE & ECE):* Missing Verilog/SystemVerilog, Cadence EDA, Embedded RTOS, and MATLAB/Simulink.
+      - *Continuous Refresh (CSE & IT):* Rapid expansion in MLOps, Docker/Kubernetes, and LLM fine-tuning.
+    - **Top Actionable Lever:** Internship participation exhibits **r = 0.71 correlation** with placement outcomes — the highest single lever for intervention.
+    """)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+
+# ── PROJECT 3: CHARGEDESERT EV INFRASTRUCTURE PLATFORM ────────────────────────
 st.markdown("""
 <div class="glass-card" style="border-left: 4px solid #22d3ee;">
     <div style="font-size: 0.75rem; font-weight: 700; color: #67e8f9; letter-spacing: 0.15em; text-transform: uppercase;">Geospatial AI & Decision Science · 2026</div>

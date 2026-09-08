@@ -1,14 +1,14 @@
 import React from "react";
 import { metrics } from "../data/portfolioData";
-import { TrendingUp, Database, Award, ShieldAlert, Zap } from "lucide-react";
+import { TrendingUp, Database, Award, ShieldAlert, Zap, GraduationCap, Layers } from "lucide-react";
 
 export default function MetricsBar() {
-  const icons = [Database, TrendingUp, ShieldAlert, Award, Zap];
+  const icons = [Layers, Database, TrendingUp, GraduationCap, Award, Zap];
 
   return (
     <section className="relative z-20 -mt-4 mb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5">
           {metrics.map((item, idx) => {
             const Icon = icons[idx % icons.length];
             return (

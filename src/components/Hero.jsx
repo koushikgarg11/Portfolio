@@ -46,7 +46,7 @@ export default function Hero() {
 
             {/* Summary description from Resume */}
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-              Quantitative problem-solver with hands-on experience in <strong className="text-white font-semibold">ARIMA time-series demand forecasting</strong>, <strong className="text-white font-semibold">geospatial intelligence</strong>, and <strong className="text-white font-semibold">machine learning threat classification</strong>. Proficient in <strong className="text-cyan-300 font-semibold">Python, SQL, Power BI, and Tableau</strong> to build automated ETL pipelines and executive decision dashboards.
+              Quantitative problem-solver with hands-on experience in <strong className="text-white font-semibold">Tier 1 placement driver modeling (r = 0.78)</strong>, <strong className="text-white font-semibold">Pan-India workforce analytics (28K+ records)</strong>, <strong className="text-white font-semibold">ARIMA time-series demand forecasting</strong>, and <strong className="text-white font-semibold">geospatial intelligence</strong>. Proficient in <strong className="text-cyan-300 font-semibold">Python, SQL, Power BI, and Tableau</strong> to build automated ETL pipelines and executive decision dashboards.
             </p>
 
             {/* Action Buttons */}
@@ -55,7 +55,7 @@ export default function Hero() {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
-                <span>View Projects</span>
+                <span>View Projects & Reports</span>
                 <ArrowDown className="w-4 h-4 text-slate-950" />
               </a>
 
@@ -122,30 +122,27 @@ export default function Hero() {
                     <span className="w-3 h-3 rounded-full bg-rose-500/80" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80" />
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="text-xs font-mono text-slate-400 ml-2">forecast_engine.py</span>
+                    <span className="text-xs font-mono text-slate-400 ml-2">driver_model.py</span>
                   </div>
                   <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-                    ARIMA(2,1,2)
+                    r = +0.78 Correlation
                   </span>
                 </div>
 
                 {/* Code Body */}
                 <div className="font-mono text-xs text-slate-300 bg-[#060b14] p-4 rounded-xl border border-slate-800/80 space-y-1.5 overflow-x-auto leading-relaxed">
-                  <div className="text-slate-500"># Demand Forecasting & Spatial Analytics</div>
+                  <div className="text-slate-500"># Institutional & Employability Modeling</div>
                   <div>
-                    <span className="text-purple-400">from</span> statsmodels.tsa.arima.model <span className="text-purple-400">import</span> ARIMA
+                    <span className="text-cyan-300">corr</span> = df[[<span className="text-amber-300">'placement_pct'</span>, <span className="text-amber-300">'max_ctc'</span>]].corr().iloc[<span className="text-amber-300">0</span>,<span className="text-amber-300">1</span>]
                   </div>
-                  <div>
-                    <span className="text-cyan-300">model</span> = ARIMA(demand_series, order=(<span className="text-amber-300">2</span>, <span className="text-amber-300">1</span>, <span className="text-amber-300">2</span>))
-                  </div>
-                  <div>
-                    <span className="text-cyan-300">fit_results</span> = model.fit()
+                  <div className="text-cyan-300">
+                    <span className="text-purple-400">print</span>(f<span className="text-emerald-300">"Placement-CTC Driver: r = +0.78"</span>)
                   </div>
                   <div className="text-emerald-400 pt-1">
-                    ✓ Forecast Accuracy: +18.4% (AIC: 412.8)
+                    ✓ 44 Tier 1 Colleges Benchmarked (16 Fields)
                   </div>
                   <div className="text-cyan-400">
-                    ✓ 130K+ Geospatial Nodes Clustered
+                    ✓ 28,091 Branch Skill Gap Records Modeled
                   </div>
                 </div>
 
@@ -154,19 +151,19 @@ export default function Hero() {
                   <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90">
                     <div className="flex items-center gap-1.5 text-xs text-slate-400">
                       <TrendingUp className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Forecast Gain</span>
+                      <span>Placement Driver</span>
                     </div>
-                    <div className="text-lg font-black text-cyan-300 mt-1">15–20%</div>
-                    <div className="text-[10px] text-slate-500">Taiwal Enterprises</div>
+                    <div className="text-lg font-black text-cyan-300 mt-1">r = 0.78</div>
+                    <div className="text-[10px] text-slate-500">Tier 1 Placement Model</div>
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90">
                     <div className="flex items-center gap-1.5 text-xs text-slate-400">
                       <Layers className="w-3.5 h-3.5 text-blue-400" />
-                      <span>Spatial Records</span>
+                      <span>Skill Gap Dataset</span>
                     </div>
-                    <div className="text-lg font-black text-blue-300 mt-1">130K+</div>
-                    <div className="text-[10px] text-slate-500">EV Infra Platform</div>
+                    <div className="text-lg font-black text-blue-300 mt-1">28,091</div>
+                    <div className="text-[10px] text-slate-500">2,813 Colleges Ingested</div>
                   </div>
                 </div>
 

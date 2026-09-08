@@ -60,28 +60,40 @@ portfolio/
 
 ---
 
-## 🌟 Featured Projects
+## 🌟 Featured Projects & Research Reports
 
-### 1. ChargeDesert — EV Infrastructure Gap & Site Recommendation Platform
+### 1. Tier 1 Engineering College Intelligence Database & Placement Drivers
+- **Live Streamlit App:** [https://collegedashboard.streamlit.app/](https://collegedashboard.streamlit.app/)
+- **GitHub Repository:** [https://github.com/koushikgarg11/College_Dashboard](https://github.com/koushikgarg11/College_Dashboard)
+- **Full Report (PDF):** `public/Tier_1_Engineering_College_Report.pdf` (20-page formal research report)
+- **Stack:** Python, Pandas, Statistical Correlation Modeling, Streamlit, Power BI
+- **Highlights:** Master benchmark of **44 Tier 1 colleges across 18 states and 16 attributes**. Quantified critical drivers: strong correlation between placement rate & max CTC (**r = 0.78**), Autonomous colleges leading placement averages (**89.3%** vs 86.6% Govt vs 85.2% Private), and NBA accreditation edge (**+2–4%**).
+
+### 2. DATAYUG — Pan-India Branch-Wise Skill Gap & Industry Readiness Intelligence
+- **Full Report (PDF):** `public/Branch_Wise_Skill_Gap_Report.pdf` (30-page research report)
+- **Stack:** Python, ETL Pipelines, Statistical Modeling, Skill Gap Scoring (0–100), Workforce Analytics
+- **Highlights:** Ingested **28,091 college-branch records across 2,813 institutions in 483 cities**. Formulated a standardized 0–100 Skill Gap Score isolating major software tool lags in Civil (Gap 39.5) and Mechanical (Gap 34.2), and proved that **internship participation is the #1 actionable placement lever (r = 0.71)**.
+
+### 3. ChargeDesert — EV Infrastructure Gap & Site Recommendation Platform
 - **Live Streamlit App:** [https://chargedesert.streamlit.app/](https://chargedesert.streamlit.app/)
 - **Stack:** Python, GIS & Spatial Analytics, AHP/TOPSIS, Streamlit, Pandas
 - **Highlights:** Ingested **130K+ geospatial records** across arterial highway grids. Implemented Analytic Hierarchy Process (AHP) and TOPSIS multi-criteria algorithms to detect charging deserts and prioritize optimal deployment nodes.
 
-### 2. Water ATM Downtime Atlas – Rural Drinking Water Infrastructure Analytics
+### 4. Water ATM Downtime Atlas – Rural Drinking Water Infrastructure Analytics
 - **Live Streamlit App:** [https://wateratm.streamlit.app/](https://wateratm.streamlit.app/)
 - **Stack:** Python, Web Scraping, SQL, Power BI, Failure Diagnostics
 - **Highlights:** Web-scraped and harmonized pan-India government disclosures, tenders, and grievance tickets. Diagnosed failure patterns (48% power grid instability, 31% RO fouling) and identified a 4.2-day vendor SLA breach lag.
 
-### 3. AI-Assisted Sales Report Automation
+### 5. AI-Assisted Sales Report Automation
 - **Live Streamlit App:** [https://ai-assisted-sales-report-automation.streamlit.app/](https://ai-assisted-sales-report-automation.streamlit.app/)
 - **Stack:** Python, LLM Prompt Engineering, Semantic Search, ETL Pipelines
 - **Highlights:** Built automated Python ETL workflows with Few-Shot prompting, reducing manual sales report generation time by **~40%** and enabling semantic plain-English querying.
 
-### 4. Demand Forecasting & Inventory Optimization | Taiwal Enterprises
+### 6. Demand Forecasting & Inventory Optimization | Taiwal Enterprises
 - **Stack:** Python, ARIMA / SARIMA, ABC/Pareto 80/20, EOQ, Safety Stock, ROP
 - **Highlights:** Replaced guesswork replenishment with ARIMA time-series models, improving forecast accuracy by **15–20%**. Conducted ABC analysis (20% SKUs = 75% revenue) and engineered client-adopted EOQ/Safety Stock reorder schedules.
 
-### 5. Market Research & Competitive Analysis | Business.io Society, IIT Madras
+### 7. Market Research & Competitive Analysis | Business.io Society, IIT Madras
 - **Stack:** Market Intelligence, Competitive Benchmarking, Power BI, Excel
 - **Highlights:** Synthesized multi-source competitive data for HMC Group, delivering feature parity matrices and whitespace differentiation recommendations.
 

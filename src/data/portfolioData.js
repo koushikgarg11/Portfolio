@@ -12,11 +12,18 @@ export const profile = {
     github: "https://github.com/koushikgarg11",
     linkedin: "https://linkedin.com/in/koushik-garg-b034442a9/",
     streamlitApp: "https://koushikgarg11-portfolioapp.streamlit.app",
-    resume: "/Koushik_Garg_Resume.pdf"
+    resume: "/Koushik_Garg_Resume.pdf",
+    tier1Report: "/Tier_1_Engineering_College_Report.pdf",
+    skillGapReport: "/Branch_Wise_Skill_Gap_Report.pdf"
   }
 };
 
 export const metrics = [
+  {
+    value: "28K+",
+    label: "College-Branch Records",
+    sub: "Pan-India Employability Model"
+  },
   {
     value: "130K+",
     label: "Geospatial Records",
@@ -28,9 +35,9 @@ export const metrics = [
     sub: "ARIMA Time-Series Modeling"
   },
   {
-    value: "100K+",
-    label: "Records Modeled",
-    sub: "ML Threat Classification & Tuning"
+    value: "44 Tier 1",
+    label: "Top Colleges Benchmarked",
+    sub: "Statistical Driver Analysis (r = 0.78)"
   },
   {
     value: "Top 1%",
@@ -98,6 +105,70 @@ export const skills = {
 };
 
 export const projects = [
+  {
+    id: "tier1-college-analytics",
+    tag: "BENCHMARKING & DECISION INTELLIGENCE",
+    visualType: "tier1-colleges",
+    title: "Tier 1 Engineering College Intelligence Database & Placement Drivers",
+    subtitle: "Consolidated 44 Tier 1 institutions across 18 states with 16 attributes into an analytical platform to uncover true placement drivers",
+    description: "Built a master intelligence database of 44 Tier 1 Indian engineering colleges across 18 states and 16 structured attributes. Evaluated placement drivers beyond ranking: quantified the correlation between placement rate & maximum package (r = 0.78), ownership variations (Autonomous 89.3% vs Govt 86.6% vs Private 85.2%), and NBA accreditation premiums.",
+    tools: ["Python", "Pandas", "Statistical Correlation", "Streamlit", "Power BI", "Data Wrangling"],
+    year: "2026",
+    stats: [
+      ["Dataset Scope", "44 Colleges · 16 Fields"],
+      ["Placement vs CTC", "r = 0.78 Correlation"],
+      ["Autonomous Lead", "89.3% Placement Rate"]
+    ],
+    work: [
+      "Built a unified 44-college Pan-India master database across 18 states and 16 structured parameters from NIRF, NAAC/NBA, and placement disclosures",
+      "Discovered strong statistical correlation (r = 0.78) between placement rate and maximum CTC, proving recruiter quality lifts both volume and compensation",
+      "Identified that Autonomous institutions achieve the highest average placement rate (89.3%), outpacing Government (86.6%) and Private (85.2%)",
+      "Constructed interactive multi-view Streamlit dashboards for institutional distribution, comparative analytics, and ROI evaluation"
+    ],
+    case: {
+      problem: "Information on India's top Tier 1 engineering colleges is fragmented across disparate ranking releases, institutional brochures, and accreditation disclosures. Educational strategists and recruiters lack a centralized, evidence-based benchmark to understand what structural factors (accreditation, autonomy, location, scale) actually drive placement outcomes.",
+      dataset: "Consolidated Pan-India repository of 44 Tier 1 engineering colleges across 18 states and 8 categories (IITs, NITs, BITS, Autonomous, etc.), capturing 16 attributes across recognition, governance, batch intake, alumni strength, median CTC, max CTC, and placement percentages.",
+      cleaning: "Standardized multi-format placement disclosures, normalized category nomenclature, reconciled NIRF engineering ranks with NAAC/NBA accreditation tiers, and eliminated duplicate institutional registries.",
+      analysis: "Quantified Pearson correlation drivers: Placement % vs Max Package showed strong correlation (r = 0.78); NIRF Rank vs Placement % was moderate (r = -0.55); Intake capacity and Alumni size showed near-zero correlation with placement rate (r = 0.03 each), debunking the assumption that sheer scale drives outcomes. NBA accreditation delivered a consistent +2–4% placement edge over NAAC-only.",
+      visualization: "Engineered 6-view interactive Streamlit dashboards featuring geographic state distribution, multi-variable scatter correlation plots, side-by-side institutional comparison radars, and package-to-cost ROI matrices.",
+      recommendations: "Formulated a 5-pillar Campus-to-Corporate blueprint for partner institutions: prioritize program-level NBA accreditation readiness, leverage institutional autonomy for agile curriculum updates, and build active recruiter ecosystems rather than solely relying on NIRF ranking."
+    },
+    demo: "https://collegedashboard.streamlit.app/",
+    github: "https://github.com/koushikgarg11/College_Dashboard",
+    reportPdf: "/Tier_1_Engineering_College_Report.pdf",
+    reportName: "Tier 1 Eng. College Project Report.pdf"
+  },
+  {
+    id: "branch-skill-gap-datayug",
+    tag: "EMPLOYABILITY & WORKFORCE INTELLIGENCE",
+    visualType: "branch-skill-gap",
+    title: "DATAYUG — Pan-India Branch-Wise Skill Gap & Industry Readiness Intelligence",
+    subtitle: "28,091 college-branch records analyzed across 2,813 institutions in 483 locations to diagnose branch-specific employability gaps and placement levers",
+    description: "Conducted a large-scale engineering workforce intelligence study synthesizing 28,091 college-branch records across 2,813 colleges in India. Formulated a 0–100 Skill Readiness Index & Skill Gap Score, diagnosed curriculum-industry misalignments across 7 engineering branches, and identified internship participation as the #1 actionable placement lever (r = 0.71).",
+    tools: ["Python", "ETL Pipelines", "Statistical Modeling", "Skill Gap Scoring (0-100)", "Pandas", "Workforce Analytics"],
+    year: "2026",
+    stats: [
+      ["Master Records", "28,091 Branch Records"],
+      ["Colleges & Cities", "2,813 Colleges · 483 Cities"],
+      ["Top Actionable Lever", "r = 0.71 Internship Correlation"]
+    ],
+    work: [
+      "Synthesized and validated 28,091 college-branch records across 2,813 institutions, 483 locations, and 30 institutional categories into a consolidated analytics model",
+      "Formulated the standardized Skill Readiness Index (0–100) and Skill Gap Score to quantify shortfall between academic curricula and recruiter demand",
+      "Identified that Civil (Skill Gap 39.5, 60.5% placement) and Mechanical (Skill Gap 34.2, 65.8% placement) suffer the highest software-tool adoption lags",
+      "Discovered that internship participation has the highest single correlation with placement (r = 0.71), establishing structured internships as the primary ROI lever"
+    ],
+    case: {
+      problem: "Despite millions of annual engineering graduates, employers report acute talent shortages while thousands of graduates remain unplaced. The skill gap is highly non-uniform across disciplines (CSE vs Core branches), leaving academic institutions, edtech platforms, and policy bodies without granular, branch-specific upskilling roadmaps.",
+      dataset: "28,091 college-branch records spanning 2,813 engineering colleges across 483 Indian locations and 30 institutional categories. Captures placement percentages, average CTC, internship exposure, curricula taught vs recruiter tools demanded, missing skill gaps, and emerging tech adoption across 7 branch clusters.",
+      cleaning: "Reconciled cross-institutional branch taxonomies, normalized salary and placement metrics, parsed recruiter demand narratives with text mining, and cross-validated institutional categories (IITs, NITs, Autonomous, Govt, Private).",
+      analysis: "Developed the Skill Readiness Index (0–100) based on placement outcomes, recruiter demand intensity, and internship exposure. Proved that Civil (Gap 39.5) and Mechanical (Gap 34.2) lag due to manual drafting vs 3D BIM/ANSYS; EEE/ECE require embedded RTOS and Cadence EDA; while CSE/IT need continuous MLOps/DevOps refresh. Proved internship participation correlates with placement at r = 0.71 (stronger than salary's correlation with placement).",
+      visualization: "Constructed comprehensive branch-wise skill gap heatmaps, government vs private outcome differentials, and regional placement distribution matrices.",
+      recommendations: "Designed a 3-tier intervention framework for Analytics Career Connect: Tier 1 immediate intensive tooling bootcamps for Civil/Mechanical; Tier 2 software micro-certifications for EEE/ECE; and Tier 3 continuous MLOps/Cloud subscriptions for CSE/IT, centered around mandatory structured internships."
+    },
+    reportPdf: "/Branch_Wise_Skill_Gap_Report.pdf",
+    reportName: "DATAYUG Engineering Skill Gap Report (30 Pages).pdf"
+  },
   {
     id: "chargedesert-ev",
     tag: "GEOSPATIAL AI & DECISION SCIENCE",

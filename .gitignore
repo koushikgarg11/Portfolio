@@ -1,47 +1,44 @@
-# Node dependencies & build artifacts
+# Dependencies
 node_modules/
-dist/
-dist-ssr/
-*.local
+.pnp
+.pnp.js
 
-# Python artifacts
+# Production build output
+dist/
+build/
+
+# Python cache & virtual environments
 __pycache__/
 *.py[cod]
-*$py.class
+*.class
 *.so
 .Python
 env/
 venv/
 .venv/
 ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# Streamlit
-.streamlit/secrets.toml
-
-# IDE & OS
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Environment variables
+# Environment Variables
 .env
 .env.local
-.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db

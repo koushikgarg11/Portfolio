@@ -39,7 +39,7 @@ export default function About() {
               My expertise spans the complete analytics lifecycle — from raw web-scraping and Python ETL data pipelines to statistical modeling, machine learning classification, and executive storytelling in Power BI & Tableau.
             </p>
             <p>
-              Whether engineering <strong className="text-cyan-300 font-semibold">ARIMA time-series models</strong> to optimize inventory ordering and improve forecast accuracy by 15–20% at Taiwal Enterprises, aggregating <strong className="text-cyan-300 font-semibold">130K+ geospatial records</strong> for EV infrastructure gap recommendations, or training <strong className="text-cyan-300 font-semibold">Random Forest threat classifiers</strong> on 100K+ records, my focus is always on actionable ROI.
+              Whether analyzing placement drivers across <strong className="text-cyan-300 font-semibold">44 Tier 1 Engineering Colleges (r = 0.78)</strong>, diagnosing employability shortfalls on <strong className="text-cyan-300 font-semibold">28,091 college-branch records</strong> (DATAYUG), engineering <strong className="text-cyan-300 font-semibold">ARIMA time-series models</strong> to improve demand forecast accuracy by 15–20% at Taiwal Enterprises, or aggregating <strong className="text-cyan-300 font-semibold">130K+ geospatial records</strong> for EV infrastructure gap recommendations, my focus is always on actionable ROI.
             </p>
 
             {/* Core Value Pillars */}

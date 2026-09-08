@@ -12,10 +12,247 @@ import {
   CheckCircle2,
   Sliders,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  GraduationCap,
+  Building2,
+  BookOpenCheck,
+  Compass,
+  Briefcase
 } from "lucide-react";
 
 export default function ProjectVisual({ visualType }) {
+  // ── 0A. TIER 1 ENGINEERING COLLEGE PLACEMENT DRIVERS VISUALIZER ───────────
+  if (visualType === "tier1-colleges") {
+    const [activeTab, setActiveTab] = useState("correlation"); // 'correlation', 'ownership', 'accreditation'
+
+    const correlations = [
+      { metric: "Placement Rate vs Max CTC", r: "+0.78", status: "Strong Positive Driver", desc: "Recruiter quality & placement volume strongly reinforce each other", color: "text-cyan-300", bar: "w-[78%] bg-cyan-400" },
+      { metric: "NIRF Rank vs Placement Rate", r: "-0.55", status: "Moderate Predictor", desc: "Rank explains ~33% variance; brand alone does not dictate outcomes", color: "text-blue-300", bar: "w-[55%] bg-blue-400" },
+      { metric: "Batch Intake vs Placement Rate", r: "+0.03", status: "Near Zero Correlation", desc: "Institutional student scale does not drive placement percentage", color: "text-slate-400", bar: "w-[5%] bg-slate-500" },
+      { metric: "Alumni Size vs Placement Rate", r: "+0.03", status: "Near Zero Correlation", desc: "Active engagement matters far more than total alumni headcount", color: "text-slate-400", bar: "w-[5%] bg-slate-500" }
+    ];
+
+    const ownerships = [
+      { type: "Autonomous", avgPlacement: "89.3%", avgMax: "₹48.5 L", edge: "Agile curriculum & flexible hiring", color: "text-emerald-400", bg: "bg-emerald-500/20 border-emerald-500/40" },
+      { type: "Government", avgPlacement: "86.6%", avgMax: "₹44.2 L", edge: "Strong public brand & low fee ROI", color: "text-cyan-400", bg: "bg-cyan-500/20 border-cyan-500/40" },
+      { type: "Private Tier 1", avgPlacement: "85.2%", avgMax: "₹38.9 L", edge: "High modern infrastructure investment", color: "text-purple-400", bg: "bg-purple-500/20 border-purple-500/40" }
+    ];
+
+    return (
+      <div className="rounded-xl bg-[#060b14] p-4 border border-slate-800 text-left space-y-3 font-sans">
+        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+          <div className="flex items-center gap-2">
+            <GraduationCap className="w-4 h-4 text-cyan-400" />
+            <span className="text-xs font-mono font-bold text-slate-200">Tier 1 Placement Driver Analytics</span>
+          </div>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+            44 Colleges · 18 States
+          </span>
+        </div>
+
+        {/* Tab Controls */}
+        <div className="grid grid-cols-3 gap-1">
+          <button
+            onClick={() => setActiveTab("correlation")}
+            className={`px-2 py-1 rounded-md text-[11px] font-mono font-semibold transition-all ${
+              activeTab === "correlation" ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40" : "bg-slate-900/60 text-slate-400 hover:text-white"
+            }`}
+          >
+            Correlation (r)
+          </button>
+          <button
+            onClick={() => setActiveTab("ownership")}
+            className={`px-2 py-1 rounded-md text-[11px] font-mono font-semibold transition-all ${
+              activeTab === "ownership" ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40" : "bg-slate-900/60 text-slate-400 hover:text-white"
+            }`}
+          >
+            Ownership Stats
+          </button>
+          <button
+            onClick={() => setActiveTab("accreditation")}
+            className={`px-2 py-1 rounded-md text-[11px] font-mono font-semibold transition-all ${
+              activeTab === "accreditation" ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40" : "bg-slate-900/60 text-slate-400 hover:text-white"
+            }`}
+          >
+            NBA vs NAAC
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        {activeTab === "correlation" && (
+          <div className="space-y-2">
+            {correlations.map((c, i) => (
+              <div key={i} className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-slate-200">{c.metric}</span>
+                  <span className={`font-mono font-bold ${c.color}`}>{c.r}</span>
+                </div>
+                <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                  <div className={`h-full rounded-full ${c.bar}`} />
+                </div>
+                <div className="text-[10px] text-slate-400">{c.desc}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === "ownership" && (
+          <div className="space-y-2">
+            {ownerships.map((o, i) => (
+              <div key={i} className={`p-2.5 rounded-lg bg-slate-900/80 border ${o.bg} text-xs space-y-1`}>
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white flex items-center gap-1.5">
+                    <Building2 className="w-3.5 h-3.5 text-cyan-400" /> {o.type}
+                  </span>
+                  <span className={`font-mono font-black text-sm ${o.color}`}>{o.avgPlacement}</span>
+                </div>
+                <div className="flex items-center justify-between text-[10px] text-slate-300">
+                  <span>Avg Max CTC: <strong className="text-white">{o.avgMax}</strong></span>
+                  <span className="text-slate-400">{o.edge}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === "accreditation" && (
+          <div className="p-3 rounded-lg bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-slate-200">Accreditation Placement Delta</span>
+              <span className="text-[10px] font-mono text-emerald-400 font-bold">+2.8% Advantage</span>
+            </div>
+            <div className="space-y-1.5">
+              <div className="flex justify-between text-[11px] text-slate-300">
+                <span>NBA Programmatic Accredited</span>
+                <span className="font-mono text-cyan-300 font-bold">88.4% Avg Placement</span>
+              </div>
+              <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                <div className="h-full bg-cyan-400 rounded-full w-[88%]" />
+              </div>
+              <div className="flex justify-between text-[11px] text-slate-400 pt-1">
+                <span>NAAC-Only Accredited</span>
+                <span className="font-mono text-slate-300">85.6% Avg Placement</span>
+              </div>
+              <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                <div className="h-full bg-slate-500 rounded-full w-[85%]" />
+              </div>
+            </div>
+            <div className="text-[10px] text-slate-400 pt-1 border-t border-slate-800">
+              💡 100% of top-10 placement institutions hold active NBA tier credentials.
+            </div>
+          </div>
+        )}
+
+        <div className="p-2 rounded-lg bg-cyan-950/30 border border-cyan-500/20 flex items-center justify-between text-xs">
+          <span className="text-slate-300">Campus-to-Corporate Model</span>
+          <span className="text-[10px] font-mono text-cyan-300 font-bold">Analytics Career Connect</span>
+        </div>
+      </div>
+    );
+  }
+
+  // ── 0B. DATAYUG BRANCH-WISE SKILL GAP VISUALIZER ──────────────────────────
+  if (visualType === "branch-skill-gap") {
+    const [selectedBranch, setSelectedBranch] = useState(0);
+
+    const branches = [
+      { name: "Civil", gap: 39.5, placement: "60.5%", avgSalary: "₹4.2 L", missing: "BIM / Revit, ETABS, Primavera P6, Drone Surveying", priority: "TIER 1 CRITICAL", color: "text-rose-400", bar: "bg-rose-500" },
+      { name: "Mechanical", gap: 34.2, placement: "65.8%", avgSalary: "₹5.1 L", missing: "SolidWorks / CATIA, ANSYS FEA/CFD, GD&T, EV Dynamics", priority: "TIER 1 CRITICAL", color: "text-rose-400", bar: "bg-rose-500" },
+      { name: "EEE", gap: 28.1, placement: "72.4%", avgSalary: "₹6.2 L", missing: "MATLAB/Simulink, ETAP, PLC/SCADA, EV BMS Systems", priority: "TIER 2 NEAR-TERM", color: "text-amber-400", bar: "bg-amber-500" },
+      { name: "ECE", gap: 24.5, placement: "76.5%", avgSalary: "₹6.8 L", missing: "Verilog / SystemVerilog, Cadence EDA, Embedded RTOS", priority: "TIER 2 NEAR-TERM", color: "text-amber-400", bar: "bg-amber-500" },
+      { name: "IT", gap: 15.2, placement: "85.5%", avgSalary: "₹8.5 L", missing: "Full-stack MERN/MEAN, Cloud Native, Automated QA", priority: "TIER 3 REFRESH", color: "text-emerald-400", bar: "bg-emerald-400" },
+      { name: "CSE", gap: 11.8, placement: "88.2%", avgSalary: "₹9.8 L", missing: "System Design at scale, Docker/K8s, CI/CD, AWS/GCP", priority: "TIER 3 REFRESH", color: "text-cyan-400", bar: "bg-cyan-400" }
+    ];
+
+    const cur = branches[selectedBranch];
+
+    return (
+      <div className="rounded-xl bg-[#060b14] p-4 border border-slate-800 text-left space-y-3 font-sans">
+        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+          <div className="flex items-center gap-2">
+            <BookOpenCheck className="w-4 h-4 text-cyan-400" />
+            <span className="text-xs font-mono font-bold text-slate-200">DATAYUG Branch Skill Gap Radar</span>
+          </div>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+            28,091 College Records
+          </span>
+        </div>
+
+        {/* Branch Selector Chips */}
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-1">
+          {branches.map((b, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedBranch(i)}
+              className={`p-1.5 rounded-lg text-center text-xs transition-all ${
+                selectedBranch === i
+                  ? "bg-cyan-500/20 border border-cyan-400 text-white font-bold"
+                  : "bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white"
+              }`}
+            >
+              <div className="text-[11px]">{b.name}</div>
+              <div className="text-[9px] font-mono text-slate-400 mt-0.5">{b.gap} Gap</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Branch Metrics Panel */}
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="font-bold text-white text-sm">{cur.name} Engineering</span>
+              <span className="text-[10px] font-mono ml-2 px-2 py-0.5 rounded bg-slate-800 text-cyan-300">
+                {cur.priority}
+              </span>
+            </div>
+            <div className="text-right">
+              <span className="text-[10px] text-slate-400 font-mono uppercase">Skill Gap Score: </span>
+              <span className={`font-black font-mono text-sm ${cur.color}`}>{cur.gap} / 100</span>
+            </div>
+          </div>
+
+          {/* Skill Gap Score Bar */}
+          <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+            <div
+              className={`h-full rounded-full ${cur.bar} transition-all duration-300`}
+              style={{ width: `${cur.gap * 2}%` }}
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 text-center pt-1">
+            <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800/80">
+              <div className="text-[10px] font-mono text-slate-400">Avg Placement Rate</div>
+              <div className="text-sm font-bold text-white mt-0.5">{cur.placement}</div>
+            </div>
+            <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800/80">
+              <div className="text-[10px] font-mono text-slate-400">Avg Graduate CTC</div>
+              <div className="text-sm font-bold text-cyan-300 mt-0.5">{cur.avgSalary}</div>
+            </div>
+          </div>
+
+          {/* Missing Industry Tools */}
+          <div className="pt-1 text-xs">
+            <div className="text-[10px] font-mono text-slate-400 uppercase">Recruiter-Demanded Missing Skills:</div>
+            <div className="p-2 mt-1 rounded bg-[#060b14] border border-slate-800 text-[11px] text-rose-300 leading-snug">
+              ⚠️ {cur.missing}
+            </div>
+          </div>
+        </div>
+
+        {/* Highest Actionable Lever Callout */}
+        <div className="p-2.5 rounded-lg bg-emerald-950/25 border border-emerald-500/30 flex items-center justify-between text-xs">
+          <div className="flex items-center gap-1.5">
+            <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span className="text-slate-300">Top Actionable Lever: <strong className="text-emerald-300">Internship Participation</strong></span>
+          </div>
+          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-bold">
+            r = 0.71 Driver
+          </span>
+        </div>
+      </div>
+    );
+  }
+
   // ── 1. CHARGEDESERT EV GEOSPATIAL VISUALIZER ──────────────────────────────
   if (visualType === "ev-geospatial") {
     const [selectedHub, setSelectedHub] = useState(0);
