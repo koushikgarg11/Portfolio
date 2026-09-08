@@ -473,6 +473,11 @@ st.markdown("""
         <span class="skill-tag">Streamlit</span>
         <span class="skill-tag">Scikit-Learn</span>
     </div>
+    <div style="margin-top: 0.75rem;">
+        <a href="https://chargedesert.streamlit.app/" target="_blank" style="display: inline-flex; align-items: center; gap: 4px; background: linear-gradient(135deg, #22d3ee, #3b82f6); color: #060b14; font-weight: 700; font-size: 0.75rem; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">
+            🚀 Launch Live App ↗
+        </a>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -501,6 +506,8 @@ with st.expander("📖 View Full Case Study — ChargeDesert EV Infrastructure P
     - **130K+ Records:** Ingested existing charging nodes, state/national highway networks, traffic density telemetry, and substation capacities.
     - **AHP/TOPSIS Engine:** Weighted dynamic criteria (Traffic Density 30%, Grid Distance 25%, Competitor Buffer 15%, POI Density 15%, Road Risk 10%, Land Cost 5%).
     - **Impact:** Top 15 ranked highway intersections identified for Phase-1 deployment, projected to increase network coverage by 38% while reducing grid extension Capex by 24%.
+    
+    🔗 **Live App:** [https://chargedesert.streamlit.app/](https://chargedesert.streamlit.app/)
     """)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -521,6 +528,11 @@ st.markdown("""
         <span class="skill-tag">SQL</span>
         <span class="skill-tag">Failure Diagnostics</span>
         <span class="skill-tag">Power BI</span>
+    </div>
+    <div style="margin-top: 0.75rem;">
+        <a href="https://wateratm.streamlit.app/" target="_blank" style="display: inline-flex; align-items: center; gap: 4px; background: linear-gradient(135deg, #22d3ee, #3b82f6); color: #060b14; font-weight: 700; font-size: 0.75rem; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">
+            🚀 Launch Live App ↗
+        </a>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -547,6 +559,8 @@ with st.expander("📖 View Full Case Study — Water ATM Downtime Atlas"):
     - **Data Pipeline:** Scraped and harmonized data from state water mission portals, Smart City feeds, and grievance logs spanning 100+ districts.
     - **Diagnostics:** 48% of outages were caused by power supply instability, 31% by membrane fouling. Maintenance vendors breached contractual 24-hour SLAs by an average of 4.2 days.
     - **Policy ROI:** Recommended solar-hybrid micro inverters and implemented penalty-linked vendor SLA scorecards, cutting operational downtime by 45%.
+    
+    🔗 **Live App:** [https://wateratm.streamlit.app/](https://wateratm.streamlit.app/)
     """)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -567,6 +581,11 @@ st.markdown("""
         <span class="skill-tag">Semantic Search</span>
         <span class="skill-tag">ETL Workflows</span>
         <span class="skill-tag">Pandas</span>
+    </div>
+    <div style="margin-top: 0.75rem;">
+        <a href="https://ai-assisted-sales-report-automation.streamlit.app/" target="_blank" style="display: inline-flex; align-items: center; gap: 4px; background: linear-gradient(135deg, #22d3ee, #3b82f6); color: #060b14; font-weight: 700; font-size: 0.75rem; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">
+            🚀 Launch Live App ↗
+        </a>
     </div>
 </div>
 """, unsafe_allow_html=True)

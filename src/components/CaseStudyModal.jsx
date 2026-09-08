@@ -8,7 +8,8 @@ import {
   Database,
   LineChart,
   Lightbulb,
-  ArrowUpRight
+  ArrowUpRight,
+  Sparkles
 } from "lucide-react";
 
 export default function CaseStudyModal({ project, onClose }) {
@@ -152,21 +153,36 @@ export default function CaseStudyModal({ project, onClose }) {
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:p-6 bg-[#091122] border-t border-slate-800 flex items-center justify-between">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition-all border border-slate-700"
-          >
-            <Github className="w-4 h-4 text-slate-300" />
-            <span>View Source Repository</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+        <div className="p-4 sm:p-6 bg-[#091122] border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20 hover:from-cyan-300 hover:to-blue-400 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <Sparkles className="w-4 h-4 text-slate-950" />
+                <span>Launch Live App</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition-all border border-slate-700"
+            >
+              <Github className="w-4 h-4 text-slate-300" />
+              <span>GitHub Repo</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
 
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-xs font-bold transition-colors"
+            className="px-5 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition-colors border border-slate-700"
           >
             Close Case Study
           </button>

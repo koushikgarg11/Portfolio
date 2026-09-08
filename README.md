@@ -63,14 +63,17 @@ portfolio/
 ## 🌟 Featured Projects
 
 ### 1. ChargeDesert — EV Infrastructure Gap & Site Recommendation Platform
+- **Live Streamlit App:** [https://chargedesert.streamlit.app/](https://chargedesert.streamlit.app/)
 - **Stack:** Python, GIS & Spatial Analytics, AHP/TOPSIS, Streamlit, Pandas
 - **Highlights:** Ingested **130K+ geospatial records** across arterial highway grids. Implemented Analytic Hierarchy Process (AHP) and TOPSIS multi-criteria algorithms to detect charging deserts and prioritize optimal deployment nodes.
 
 ### 2. Water ATM Downtime Atlas – Rural Drinking Water Infrastructure Analytics
+- **Live Streamlit App:** [https://wateratm.streamlit.app/](https://wateratm.streamlit.app/)
 - **Stack:** Python, Web Scraping, SQL, Power BI, Failure Diagnostics
 - **Highlights:** Web-scraped and harmonized pan-India government disclosures, tenders, and grievance tickets. Diagnosed failure patterns (48% power grid instability, 31% RO fouling) and identified a 4.2-day vendor SLA breach lag.
 
 ### 3. AI-Assisted Sales Report Automation
+- **Live Streamlit App:** [https://ai-assisted-sales-report-automation.streamlit.app/](https://ai-assisted-sales-report-automation.streamlit.app/)
 - **Stack:** Python, LLM Prompt Engineering, Semantic Search, ETL Pipelines
 - **Highlights:** Built automated Python ETL workflows with Few-Shot prompting, reducing manual sales report generation time by **~40%** and enabling semantic plain-English querying.
 

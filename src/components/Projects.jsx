@@ -97,23 +97,36 @@ export default function Projects({ onOpenCaseStudy }) {
                   </div>
 
                   {/* Action CTAs */}
-                  <div className="flex flex-wrap items-center gap-3 pt-3">
+                  <div className="flex flex-wrap items-center gap-2.5 pt-3">
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20 hover:from-cyan-300 hover:to-blue-400 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                      >
+                        <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+                        <span>Launch App</span>
+                        <ArrowUpRight className="w-3 h-3 text-slate-950" />
+                      </a>
+                    )}
+
                     <button
                       onClick={() => onOpenCaseStudy(project)}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/40 text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/40 text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Full Case Study</span>
+                      <span>Case Study</span>
                     </button>
 
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-600 text-xs font-semibold transition-all"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-slate-900 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-600 text-xs font-semibold transition-all"
                     >
                       <Github className="w-3.5 h-3.5" />
-                      <span>GitHub Repo</span>
+                      <span>Repo</span>
                       <ArrowUpRight className="w-3 h-3 text-slate-500" />
                     </a>
                   </div>

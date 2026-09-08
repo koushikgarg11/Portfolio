@@ -126,7 +126,8 @@ export const projects = [
       visualization: "Engineered an interactive Streamlit GIS mapping interface featuring density heatmaps, site viability rank overlays, radar score breakdowns, and live what-if parameter sliders.",
       recommendations: "Prioritize Phase-1 deployment on top 15 ranked highway intersections, projected to increase network coverage by 38% while reducing initial grid extension Capex by 24%."
     },
-    github: "https://github.com/koushikgarg11/ChargeDesert"
+    github: "https://github.com/koushikgarg11/ChargeDesert",
+    demo: "https://chargedesert.streamlit.app/"
   },
   {
     id: "water-atm-downtime",
@@ -156,7 +157,8 @@ export const projects = [
       visualization: "Designed comprehensive multi-layered dashboards showing geographic downtime heatmaps, vendor SLA scorecards, root-cause Pareto charts, and MTTR (Mean Time to Repair) tracking.",
       recommendations: "Recommended solar-battery backup hybrid installations for top 20% failure-prone rural zones and implemented penalty-linked vendor SLA performance tracking to cut downtime by over 45%."
     },
-    github: "https://github.com/koushikgarg11/Water_ATM_Downtime_Atlas"
+    github: "https://github.com/koushikgarg11/Water_ATM_Downtime_Atlas",
+    demo: "https://wateratm.streamlit.app/"
   },
   {
     id: "sales-report-automation",
@@ -186,7 +188,8 @@ export const projects = [
       visualization: "Automated email-ready HTML briefings, structured executive summary cards, and an interactive lightweight query console providing immediate data answers.",
       recommendations: "Full organizational adoption of automated reporting reduced manual weekly aggregation time by ~40% and accelerated leadership decision response times from 3 days to under 15 minutes."
     },
-    github: "https://github.com/koushikgarg11/AI_Sales_Report_Automation"
+    github: "https://github.com/koushikgarg11/AI_Sales_Report_Automation",
+    demo: "https://ai-assisted-sales-report-automation.streamlit.app/"
   },
   {
     id: "demand-forecasting-inventory",
