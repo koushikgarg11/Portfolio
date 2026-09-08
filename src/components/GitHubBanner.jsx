@@ -1,35 +1,30 @@
-import React from 'react';
-import { Github, ArrowUpRight, Code, FileCode2, Terminal } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import React from "react";
+import { Github, Sparkles, ExternalLink, Star } from "lucide-react";
+import { profile } from "../data/portfolioData";
 
 export default function GitHubBanner() {
   return (
-    <section className="border-t border-white/10 px-5 py-20 sm:px-8 relative">
-      <div className="mx-auto max-w-4xl rounded-3xl border border-cyan-300/15 bg-gradient-to-br from-cyan-400/[0.08] via-blue-500/[0.04] to-violet-500/[0.08] p-8 text-center sm:p-12 shadow-2xl backdrop-blur-sm">
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300 border border-cyan-400/20 shadow-lg shadow-cyan-500/10">
-          <Github size={28} />
+    <div className="bg-gradient-to-r from-cyan-950/60 via-[#071124] to-indigo-950/60 border-b border-cyan-500/20 py-2 px-4 text-xs font-medium text-slate-300">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2 truncate">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="truncate">
+            <strong className="text-white">Dual-Stack Data Analyst Portfolio:</strong> Fast React + Vite UI & Python Streamlit Cloud App.
+          </span>
         </div>
-
-        <h2 className="text-2xl font-bold text-white sm:text-3xl">
-          Explore my code & notebooks on GitHub
-        </h2>
-
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-400">
-          Inspect Jupyter notebooks, clean SQL scripts, machine learning training pipelines, and dataset preprocessing scripts for all listed projects.
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <a
-            href={personalInfo.github}
+            href={profile.links.github}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-100 hover:scale-105 active:scale-95 shadow-lg"
+            className="inline-flex items-center gap-1.5 text-cyan-300 hover:text-white transition-colors"
           >
-            <span>Visit GitHub Profile</span>
-            <ArrowUpRight size={15} />
+            <Github className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Star on GitHub</span>
+            <ExternalLink className="w-3 h-3 text-cyan-400" />
           </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,120 +1,146 @@
 # 📊 Koushik Garg — Data Analyst Portfolio
 
-A high-performance, dark-themed, glassmorphic Data Analyst portfolio built with **React**, **Vite**, **Tailwind CSS**, and **Lucide Icons** — modeled in the exact aesthetic and architecture of modern top-tier analyst portfolios.
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.1.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.40+-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Plotly](https://img.shields.io/badge/Plotly-5.18+-3F4F75?logo=plotly&logoColor=white)](https://plotly.com/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org/)
+
+> **Quantitative Data Analyst Portfolio** featuring ARIMA demand forecasting (+15–20% accuracy gain), ChargeDesert geospatial EV infrastructure intelligence (130K+ records), Water ATM Downtime Atlas (Pan-India web scraping), AI-assisted sales ETL pipelines, and interactive executive dashboards.
 
 ---
 
-## 🌟 Features & Highlights
+## 🚀 Live Demos & Links
 
-- **Aesthetic Dark Theme:** Deep slate `#060b14` background with geometric grid overlay (`grid-bg`) and glowing cyan/violet blur gradients.
-- **Glassmorphic Navigation:** Sticky responsive navbar with smooth section scrolling and mobile overlay menu.
-- **Interactive Case Study Modals:** Fullscreen popup modals for every project detailing the *Business Problem, Dataset, Data Cleaning, Analytical Methodology, Visualizations, Key Findings, and Strategic Business Recommendations*.
-- **Live Inventory / Optimization Calculator Widget:** Interactive slider-driven Economic Order Quantity (EOQ), Safety Stock, and Reorder Point calculator.
-- **Dynamic Visualizations & Schemas:**
-  - Comparative Higher Education Skill Deficit rate by engineering discipline (Civil, Mech, Chem, ECE, CSE).
-  - Smart Water ATM IoT Sensor Telemetry stream monitor (Volume, Flow, TDS water purity, Node status).
-  - 24-Hour Bimodal Hourly Consumption Surge curve and RFID smart card payment split.
-  - Institutional College Academic GPA benchmark, attendance impact curve, and student retention monitor.
-- **Structured Sections:**
-  - 🟢 **Hero Section** with quantified impact tags & simulated telemetry pipeline.
-  - 📈 **Key Metrics Bar** (5+ Disciplines Modeled, 25+ Kiosks, 4,500+ Records, 94.2% Uptime, Top 1% national rank).
-  - 👤 **About Me** storytelling narrative & candidate profile card.
-  - 🛠️ **Categorized Skills** with interactive filters (Analytics, BI, ML, Databases, IoT Utility, AI).
-  - 🚀 **Featured Projects** with 4 deep-dive case studies and GitHub repository links:
-    1. *Which Engineering Branches Face the Biggest Skill Gap?*
-    2. *Smart Water ATM: IoT Telemetry & Consumption Analytics*
-    3. *Smart Water ATM: RFID Transactions & Demand Prediction*
-    4. *College Performance & Academic Intelligence Dashboard*
-  - 🎓 **Education, Certifications & Competitions** (IIT Madras Data Science, DU B.Com Hons, Unstop Top 1%).
-  - 📬 **Interactive Contact Form & Direct Links** (Email, LinkedIn, GitHub, WhatsApp).
+- **Production React Web App:** Deployable on Netlify, Vercel, or GitHub Pages.
+- **Streamlit Companion App:** [koushikgarg11-portfolioapp.streamlit.app](https://koushikgarg11-portfolioapp.streamlit.app)
+- **LinkedIn Profile:** [linkedin.com/in/koushik-garg-b034442a9](https://linkedin.com/in/koushik-garg-b034442a9/)
+- **GitHub Profile:** [github.com/koushikgarg11](https://github.com/koushikgarg11)
+- **Email:** [koushikgarg11@gmail.com](mailto:koushikgarg11@gmail.com) | **Phone:** +91-7428668469
 
 ---
 
-## 🛠️ Tech Stack
+## 📌 Architecture & Dual-Stack Design
 
-- **Framework:** React 18 + Vite
-- **Styling:** Tailwind CSS (custom dark theme, glowing orbs, glassmorphism)
-- **Icons:** Lucide React
-- **Deployment:** Netlify / Vercel / GitHub Pages
-
----
-
-## 🚀 Getting Started Locally
-
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) installed (v18 or higher recommended).
-
-### Installation & Run
-```bash
-# 1. Clone the repository
-git clone https://github.com/koushikgarg11/portfolio.git
-cd portfolio
-
-# 2. Install dependencies
-npm install
-
-# 3. Start local development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## ☁️ Deployment Guide
-
-### Deploy to Netlify (Recommended - 1 Click)
-
-#### Option 1: Via Netlify CLI
-```bash
-npm run build
-npx netlify deploy --prod --dir=dist
-```
-
-#### Option 2: Via Netlify Web Interface
-1. Push this repository to your GitHub account (`koushikgarg11/portfolio`).
-2. Log in to [Netlify](https://app.netlify.com/).
-3. Click **Add new site** → **Import an existing project** → select **GitHub**.
-4. Configure build settings:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-5. Click **Deploy Site** — your portfolio is live with free HTTPS and automatic CI/CD on every git push!
-
----
-
-## 📁 Project Structure
+This repository is architected as a **Dual-Stack Analytics Portfolio**:
 
 ```
 portfolio/
-├── index.html                     # HTML entry point with metadata & fonts
-├── package.json                   # Dependencies and scripts
-├── vite.config.js                 # Vite configuration
-├── tailwind.config.js             # Tailwind CSS configuration
-├── postcss.config.js              # PostCSS configuration
-├── netlify.toml                   # Netlify redirect and build rules
-├── src/
-│   ├── main.jsx                   # React root entry
-│   ├── App.jsx                    # Main application assembly
-│   ├── index.css                  # Global styles, grid-bg, scrollbar
+├── public/                       # Static public assets (Resume PDF, icons)
+│   └── Koushik_Garg_Resume.pdf
+├── src/                          # React + Vite + Tailwind Source
+│   ├── components/               # Glassmorphic UI Components
+│   │   ├── About.jsx             # Candidate background & academic standing
+│   │   ├── CaseStudyModal.jsx    # In-depth 5-section case study modals
+│   │   ├── Contact.jsx           # Direct channels & interactive form
+│   │   ├── EducationCerts.jsx    # IIT Madras + DU, Certifications, Competitions
+│   │   ├── Footer.jsx            # Brand footer & social links
+│   │   ├── GitHubBanner.jsx      # Sticky repository status banner
+│   │   ├── Hero.jsx              # Hero introduction & live telemetry code card
+│   │   ├── InteractiveWidget.jsx # Live EOQ & Safety Stock inventory simulator
+│   │   ├── MetricsBar.jsx        # High-conviction metrics bar
+│   │   ├── Navbar.jsx            # Sticky blurred glass navbar
+│   │   ├── ProjectVisual.jsx     # Interactive custom SVG/dashboard widgets
+│   │   └── Projects.jsx          # 5 Resume-derived featured projects
 │   ├── data/
-│   │   └── portfolioData.js       # Complete structured profile & project data
-│   └── components/
-│       ├── Navbar.jsx             # Sticky glass navbar
-│       ├── Hero.jsx               # Hero section with animated CTAs & visual card
-│       ├── MetricsBar.jsx         # Key impact metrics bar
-│       ├── About.jsx              # About story + candidate profile card
-│       ├── Skills.jsx             # Categorized skills grid with filters
-│       ├── Projects.jsx           # Featured projects with visual previews
-│       ├── ProjectVisual.jsx      # Custom SVG/chart visualizers for each project
-│       ├── CaseStudyModal.jsx     # Comprehensive case study popup modal
-│       ├── InteractiveWidget.jsx  # Live optimization calculator
-│       ├── EducationCerts.jsx     # Education, Certifications & Competitions
-│       ├── GitHubBanner.jsx       # GitHub callout banner
-│       ├── Contact.jsx            # Interactive contact form & direct channels
-│       └── Footer.jsx             # Footer with copyright & back-to-top
-└── dist/                          # Production-ready build output
+│   │   └── portfolioData.js      # Centralized single-source-of-truth data
+│   ├── App.jsx                   # Master application layout
+│   ├── index.css                 # Tailwind directives & dark theme styling
+│   └── main.jsx                  # React DOM entry
+├── app.py                        # Streamlit Python Companion App (Plotly Dark Charts)
+├── requirements.txt              # Python runtime dependencies
+├── package.json                  # Node.js frontend dependencies & build scripts
+├── vite.config.js                # Vite configuration
+├── tailwind.config.js            # Tailwind CSS design system configuration
+├── netlify.toml                  # Netlify SPA routing rules
+├── .streamlit/config.toml        # Streamlit dark theme settings
+└── README.md                     # Documentation
 ```
 
 ---
 
-*Built with ❤️ by **Koushik Garg** · Data Analyst · Delhi, India*
+## 🌟 Featured Projects
+
+### 1. ChargeDesert — EV Infrastructure Gap & Site Recommendation Platform
+- **Stack:** Python, GIS & Spatial Analytics, AHP/TOPSIS, Streamlit, Pandas
+- **Highlights:** Ingested **130K+ geospatial records** across arterial highway grids. Implemented Analytic Hierarchy Process (AHP) and TOPSIS multi-criteria algorithms to detect charging deserts and prioritize optimal deployment nodes.
+
+### 2. Water ATM Downtime Atlas – Rural Drinking Water Infrastructure Analytics
+- **Stack:** Python, Web Scraping, SQL, Power BI, Failure Diagnostics
+- **Highlights:** Web-scraped and harmonized pan-India government disclosures, tenders, and grievance tickets. Diagnosed failure patterns (48% power grid instability, 31% RO fouling) and identified a 4.2-day vendor SLA breach lag.
+
+### 3. AI-Assisted Sales Report Automation
+- **Stack:** Python, LLM Prompt Engineering, Semantic Search, ETL Pipelines
+- **Highlights:** Built automated Python ETL workflows with Few-Shot prompting, reducing manual sales report generation time by **~40%** and enabling semantic plain-English querying.
+
+### 4. Demand Forecasting & Inventory Optimization | Taiwal Enterprises
+- **Stack:** Python, ARIMA / SARIMA, ABC/Pareto 80/20, EOQ, Safety Stock, ROP
+- **Highlights:** Replaced guesswork replenishment with ARIMA time-series models, improving forecast accuracy by **15–20%**. Conducted ABC analysis (20% SKUs = 75% revenue) and engineered client-adopted EOQ/Safety Stock reorder schedules.
+
+### 5. Market Research & Competitive Analysis | Business.io Society, IIT Madras
+- **Stack:** Market Intelligence, Competitive Benchmarking, Power BI, Excel
+- **Highlights:** Synthesized multi-source competitive data for HMC Group, delivering feature parity matrices and whitespace differentiation recommendations.
+
+---
+
+## 💻 Local Setup & Development
+
+### Option A: Running the React Web Application
+
+1. **Install Node dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the local Vite development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+3. **Build production bundle:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+### Option B: Running the Streamlit Companion App
+
+1. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Launch Streamlit:**
+   ```bash
+   streamlit run app.py
+   ```
+   Open [http://localhost:8501](http://localhost:8501) in your browser.
+
+---
+
+## 🚀 Pushing to GitHub & Deploying
+
+### 1. Push to your GitHub Repository
+
+```bash
+git add .
+git commit -m "Update portfolio as per resume with 5 featured projects, live simulator, and dual-stack architecture"
+git push origin main
+```
+
+### 2. Deploy to Cloud
+
+- **Netlify / Vercel (React App):** Connect your GitHub repository. Build command: `npm run build`, Publish directory: `dist`.
+- **Streamlit Cloud (Python App):** Connect your GitHub repo, select `app.py`, and deploy instantly.
+
+---
+
+## 📬 Contact & Connect
+
+- **Author:** Koushik Garg
+- **Email:** [koushikgarg11@gmail.com](mailto:koushikgarg11@gmail.com)
+- **LinkedIn:** [linkedin.com/in/koushik-garg-b034442a9](https://linkedin.com/in/koushik-garg-b034442a9/)
+- **Location:** New Delhi, India

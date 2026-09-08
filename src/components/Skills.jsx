@@ -1,107 +1,74 @@
-import React, { useState } from 'react';
-import { skillCategories } from '../data/portfolioData';
-import { 
-  BarChart, 
-  PieChart, 
-  BrainCircuit, 
-  Database, 
-  Briefcase, 
-  Sparkles,
-  Layers,
-  Code2
-} from 'lucide-react';
-
-const categoryIcons = {
-  analytics: Code2,
-  bi: PieChart,
-  ml: BrainCircuit,
-  'data-eng': Database,
-  business: Briefcase,
-  ai: Sparkles,
-};
+import React from "react";
+import { skills } from "../data/portfolioData";
+import { Code2, BrainCircuit, BarChart3, Bot, CheckCircle } from "lucide-react";
 
 export default function Skills() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-
-  const filteredCategories = selectedCategory === 'all'
-    ? skillCategories
-    : skillCategories.filter(cat => cat.category === selectedCategory);
+  const categoryIcons = {
+    technical: Code2,
+    mlAnalytics: BrainCircuit,
+    businessBI: BarChart3,
+    aiAutomation: Bot
+  };
 
   return (
-    <section id="skills" className="border-t border-white/10 bg-[#080f1a] px-5 py-24 sm:px-8 relative">
-      <div className="mx-auto max-w-6xl">
-        {/* Header */}
-        <div className="mb-12 max-w-2xl">
-          <div className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.22em] text-cyan-300">
-            <span className="h-px w-8 bg-cyan-400" />
-            TECHNICAL PROFICIENCY
+    <section id="skills" className="py-20 relative bg-[#040811]/60">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-left mb-14">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
+            <span className="w-8 h-[2px] bg-cyan-400" />
+            Technical Proficiency
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Tools I use to turn data into decisions.
+          <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 tracking-tight">
+            Tools & Methodologies
           </h2>
-          <p className="mt-4 text-[15px] leading-7 text-slate-400">
-            A comprehensive suite of analytical, statistical, machine learning, and business intelligence competencies honed through client engagements, simulations, and real-world datasets.
+          <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+            A comprehensive toolkit spanning relational querying, statistical modeling, machine learning, and enterprise business intelligence.
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="mb-8 flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
-              selectedCategory === 'all'
-                ? 'bg-cyan-300 text-slate-950 shadow-md shadow-cyan-300/20'
-                : 'border border-white/10 bg-white/[0.02] text-slate-400 hover:border-cyan-300/30 hover:text-white'
-            }`}
-          >
-            All Skills ({skillCategories.reduce((acc, cat) => acc + cat.items.length, 0)})
-          </button>
-          {skillCategories.map((cat) => (
-            <button
-              key={cat.category}
-              onClick={() => setSelectedCategory(cat.category)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
-                selectedCategory === cat.category
-                  ? 'bg-cyan-300 text-slate-950 shadow-md shadow-cyan-300/20'
-                : 'border border-white/10 bg-white/[0.02] text-slate-400 hover:border-cyan-300/30 hover:text-white'
-              }`}
-            >
-              {cat.title.split('&')[0]}
-            </button>
-          ))}
-        </div>
-
-        {/* Skills Cards Grid */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredCategories.map((cat) => {
-            const Icon = categoryIcons[cat.category] || Layers;
+        {/* 4 Category Skill Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {Object.entries(skills).map(([key, group]) => {
+            const IconComponent = categoryIcons[key] || Code2;
             return (
               <div
-                key={cat.title}
-                className="group relative rounded-3xl border border-white/10 bg-white/[0.025] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.04] shadow-lg"
+                key={key}
+                className="p-6 rounded-2xl bg-[#091122]/90 border border-slate-800/90 hover:border-cyan-500/40 backdrop-blur-xl transition-all duration-300 hover:shadow-xl hover:shadow-cyan-950/20 flex flex-col justify-between"
               >
-                {/* Top Row: Icon + Title */}
-                <div className="flex items-center gap-4">
-                  <div className={`rounded-2xl bg-gradient-to-br ${cat.accent} p-[1px] shadow-sm`}>
-                    <div className="rounded-2xl bg-[#0b1220] p-3 text-cyan-300 group-hover:scale-105 transition-transform">
-                      <Icon size={20} />
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center">
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white tracking-tight">
+                        {group.title}
+                      </h3>
+                      <div className="text-xs font-mono text-cyan-400/80">
+                        {group.items.length} Core Competencies
+                      </div>
                     </div>
                   </div>
-                  <h3 className="font-bold text-white text-base">
-                    {cat.title}
-                  </h3>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {group.items.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/90 text-slate-200 border border-slate-700/60 hover:border-cyan-500/50 hover:text-cyan-200 transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Skill Pills */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {cat.items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs text-slate-300 transition group-hover:border-cyan-300/20 group-hover:text-slate-100 group-hover:bg-white/[0.06]"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                  <span>PRODUCTION READY</span>
+                  <span className="text-cyan-400 flex items-center gap-1">
+                    <CheckCircle className="w-3.5 h-3.5 text-cyan-400" /> Hands-on Tested
+                  </span>
                 </div>
               </div>
             );

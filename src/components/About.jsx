@@ -1,99 +1,142 @@
-import React from 'react';
-import { personalInfo } from '../data/portfolioData';
-import { User, MapPin, GraduationCap, Target, Cpu, CheckCircle2 } from 'lucide-react';
+import React from "react";
+import { profile } from "../data/portfolioData";
+import {
+  GraduationCap,
+  Briefcase,
+  MapPin,
+  Code,
+  Target,
+  CheckCircle2,
+  FileSpreadsheet,
+  BrainCircuit
+} from "lucide-react";
 
 export default function About() {
-  const profileDetails = [
-    { label: "Role", value: personalInfo.title, icon: User },
-    { label: "Education", value: "Diploma in Data Science (IIT Madras, Online) · B.Com (Hons) DU", icon: GraduationCap },
-    { label: "Location", value: personalInfo.location, icon: MapPin },
-    { label: "Focus Areas", value: "Skill Gap Analytics, IoT Telemetry, BI", icon: Target },
-    { label: "Core Tools", value: "Python · SQL · Power BI · Tableau · Excel", icon: Cpu }
-  ];
-
   return (
-    <section id="about" className="border-t border-white/10 px-5 py-24 sm:px-8 relative">
-      <div className="mx-auto max-w-6xl">
+    <section id="about" className="py-20 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12 max-w-2xl">
-          <div className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.22em] text-cyan-300">
-            <span className="h-px w-8 bg-cyan-400" />
-            ABOUT ME
+        <div className="text-left mb-12">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
+            <span className="w-8 h-[2px] bg-cyan-400" />
+            Candidate Background
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            I enjoy finding the story inside messy data.
+          <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 tracking-tight">
+            Bridging quantitative analytics with commercial business strategy.
           </h2>
+          <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+            A unique blend of data science rigor from IIT Madras and commercial financial intuition from Delhi University.
+          </p>
         </div>
 
-        {/* 2-Column Content */}
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_.85fr] items-start">
-          {/* Left Column: Narrative Story */}
-          <div className="space-y-5 text-[15px] leading-7 text-slate-400">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Narrative Column */}
+          <div className="lg:col-span-7 space-y-5 text-slate-300 text-sm sm:text-base leading-relaxed text-left">
             <p>
-              I am an analytical problem-solver currently pursuing a <strong className="text-white">Diploma in Data Science from IIT Madras</strong> with a strong foundation in <strong className="text-white">B.Com (Honours) from the University of Delhi (81.6%)</strong>. This blend gives me both rigorous quantitative modeling depth and sharp business intuition.
+              I am an analytical problem-solver currently pursuing a <strong className="text-white font-semibold">Diploma in Data Science from IIT Madras</strong> alongside a strong academic foundation with a <strong className="text-white font-semibold">Bachelor of Commerce (Honours) from Aryabhatta College, University of Delhi (81.6%)</strong>.
             </p>
             <p>
-              My analytical work bridges the gap between raw data pipelines and executive decision-making. Whether modeling <strong className="text-cyan-300">workforce skill gap disparities</strong> across engineering branches, processing real-time <strong className="text-cyan-300">IoT sensor telemetry</strong> for clean water ATM networks, predicting <strong className="text-cyan-300">RFID transaction surges</strong>, or engineering institutional <strong className="text-cyan-300">Power BI & SQL academic dashboards</strong>, I focus on measurable outcomes.
+              My expertise spans the complete analytics lifecycle — from raw web-scraping and Python ETL data pipelines to statistical modeling, machine learning classification, and executive storytelling in Power BI & Tableau.
             </p>
             <p>
-              I especially enjoy the investigative side of data: isolating hidden outliers, engineering domain-specific features, automating repetitive Python ETL workflows, and synthesizing complex numbers into crisp, boardroom-ready narratives.
+              Whether engineering <strong className="text-cyan-300 font-semibold">ARIMA time-series models</strong> to optimize inventory ordering and improve forecast accuracy by 15–20% at Taiwal Enterprises, aggregating <strong className="text-cyan-300 font-semibold">130K+ geospatial records</strong> for EV infrastructure gap recommendations, or training <strong className="text-cyan-300 font-semibold">Random Forest threat classifiers</strong> on 100K+ records, my focus is always on actionable ROI.
             </p>
 
-            {/* Core Values / Strengths */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "Statistical Rigour & Model Validation",
-                "Automated Python & SQL Pipelines",
-                "Executive KPI & Dashboard Design",
-                "Quantified Business Impact Focus"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs text-slate-300">
-                  <CheckCircle2 size={16} className="text-cyan-300 shrink-0" />
-                  <span>{item}</span>
+            {/* Core Value Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+              <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                <BrainCircuit className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-sm font-bold text-white">Statistical & ML Rigor</div>
+                  <div className="text-xs text-slate-400 mt-0.5">Time-series forecasting, hypothesis testing, anomaly detection & classification.</div>
                 </div>
-              ))}
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                <FileSpreadsheet className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-sm font-bold text-white">Commercial Acumen</div>
+                  <div className="text-xs text-slate-400 mt-0.5">Inventory models (EOQ/ROP), ABC/Pareto 80/20, pricing and margin analytics.</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Structured Profile Card */}
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.045] to-white/[0.015] p-7 shadow-xl">
-            <div className="mb-6 flex items-center justify-between">
-              <span className="text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
-                CANDIDATE PROFILE
-              </span>
-              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-[10px] font-semibold text-emerald-300">
-                AVAILABLE FOR HIRE
-              </span>
-            </div>
-
-            <div className="space-y-4">
-              {profileDetails.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex items-start justify-between gap-4 border-b border-white/10 pb-3.5 last:border-0 last:pb-0"
-                  >
-                    <div className="flex items-center gap-2 text-sm text-slate-400 shrink-0">
-                      <Icon size={15} className="text-cyan-300/80" />
-                      <span>{item.label}</span>
-                    </div>
-                    <span className="text-right text-xs font-medium text-slate-200 sm:text-sm">
-                      {item.value}
-                    </span>
+          {/* Right Profile Spec Card */}
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl bg-[#091122]/90 border border-slate-800 p-6 backdrop-blur-xl shadow-xl space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                <div>
+                  <div className="text-xs font-mono uppercase text-cyan-400 font-semibold tracking-wider">
+                    Candidate Specifications
                   </div>
-                );
-              })}
-            </div>
+                  <div className="text-lg font-bold text-white">{profile.name}</div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
+                  {profile.status}
+                </span>
+              </div>
 
-            {/* Quick action button inside card */}
-            <div className="mt-7 pt-4 border-t border-white/10">
-              <a
-                href={`mailto:${personalInfo.email}?subject=Interview%20Invitation%20-%20Data%20Analyst`}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-300 py-3 text-xs font-bold text-slate-950 transition hover:bg-cyan-200"
-              >
-                Schedule an Interview
-              </a>
+              <div className="space-y-3.5 text-xs sm:text-sm">
+                <div className="flex items-center justify-between py-1 border-b border-slate-800/50">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <Target className="w-4 h-4 text-cyan-400" />
+                    Target Role
+                  </span>
+                  <span className="font-semibold text-slate-100">Data Analyst / BI Analyst</span>
+                </div>
+
+                <div className="flex items-start justify-between py-1 border-b border-slate-800/50">
+                  <span className="text-slate-400 flex items-center gap-2 shrink-0">
+                    <GraduationCap className="w-4 h-4 text-blue-400" />
+                    Education
+                  </span>
+                  <span className="font-semibold text-slate-100 text-right">
+                    IIT Madras (Data Science) <br />
+                    Aryabhatta College, DU (B.Com Hons)
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between py-1 border-b border-slate-800/50">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-emerald-400" />
+                    Location
+                  </span>
+                  <span className="font-semibold text-slate-100">{profile.location} (Open to Remote)</span>
+                </div>
+
+                <div className="flex items-center justify-between py-1 border-b border-slate-800/50">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <Code className="w-4 h-4 text-purple-400" />
+                    Core Stack
+                  </span>
+                  <span className="font-semibold text-slate-100">Python · SQL · Power BI · Excel</span>
+                </div>
+
+                <div className="flex items-center justify-between py-1">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <Briefcase className="w-4 h-4 text-amber-400" />
+                    Specialization
+                  </span>
+                  <span className="font-semibold text-slate-100">Forecasting · ETL · Dashboards</span>
+                </div>
+              </div>
+
+              {/* Verified skills summary */}
+              <div className="pt-2">
+                <div className="text-[11px] font-mono text-slate-400 uppercase mb-2">Verified Competencies:</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {["ARIMA / SARIMA", "AHP / TOPSIS", "Power BI / DAX", "Python ETL", "EOQ Optimization", "Semantic Search"].map((skill, i) => (
+                    <span
+                      key={i}
+                      className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-slate-800/90 text-cyan-300 border border-slate-700/60"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

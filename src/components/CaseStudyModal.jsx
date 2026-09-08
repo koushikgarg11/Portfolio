@@ -1,137 +1,177 @@
-import React, { useEffect } from 'react';
-import { X, CheckCircle2, ArrowUpRight, Github, FileSpreadsheet, ShieldAlert, TrendingUp, Sparkles, Database } from 'lucide-react';
+import React, { useEffect } from "react";
+import {
+  X,
+  BookOpen,
+  Github,
+  CheckCircle2,
+  AlertCircle,
+  Database,
+  LineChart,
+  Lightbulb,
+  ArrowUpRight
+} from "lucide-react";
 
 export default function CaseStudyModal({ project, onClose }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
-    window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     };
   }, [onClose]);
 
   if (!project) return null;
 
-  const sections = [
-    { title: "Business Problem", content: project.case?.problem },
-    { title: "Dataset Description", content: project.case?.dataset },
-    { title: "Data Cleaning & Preprocessing", content: project.case?.cleaning },
-    { title: "Analytical Methodology", content: project.case?.analysis },
-    { title: "Visualization & Dashboarding", content: project.case?.visualization },
-  ];
-
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 flex items-center justify-center">
-      {/* Blurred Backdrop */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-xl animate-fadeIn overflow-y-auto">
       <div
-        className="fixed inset-0 bg-slate-950/85 backdrop-blur-md transition-opacity"
-        onClick={onClose}
-      />
-
-      {/* Modal Container */}
-      <div className="relative mx-auto my-8 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 bg-[#0b1220] p-6 shadow-2xl sm:p-8 z-10 custom-scrollbar">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/5 p-2 text-slate-400 transition hover:bg-white/10 hover:text-white"
-          aria-label="Close case study"
-        >
-          <X size={18} />
-        </button>
-
-        {/* Header */}
-        <div className="pr-10">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
-            COMPREHENSIVE CASE STUDY
-          </div>
-          <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-            {project.title}
-          </h3>
-          <p className="mt-1 text-sm text-slate-400">
-            {project.subtitle}
-          </p>
-
-          {/* Tools Badges */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-lg border border-cyan-400/20 bg-cyan-400/5 px-2.5 py-1 text-xs font-medium text-cyan-200"
-              >
-                {tool}
+        className="relative w-full max-w-4xl max-h-[90vh] bg-[#070e1c] border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col text-left"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Modal Header */}
+        <div className="p-6 sm:p-8 bg-[#091122] border-b border-slate-800 flex items-start justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-mono font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20 uppercase">
+                {project.tag}
               </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Structured Sections */}
-        <div className="mt-8 space-y-6 divide-y divide-white/5">
-          {sections.map(({ title, content }) => (
-            <div key={title} className="pt-5 first:pt-0">
-              <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300 flex items-center gap-2">
-                <span className="h-1 w-3 bg-cyan-400 rounded-full" />
-                {title}
-              </h4>
-              <p className="text-sm leading-7 text-slate-300">
-                {content}
-              </p>
+              <span className="text-xs font-mono text-slate-500">{project.year}</span>
             </div>
-          ))}
-
-          {/* Key Findings */}
-          <div className="pt-5">
-            <h4 className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300 flex items-center gap-2">
-              <span className="h-1 w-3 bg-cyan-400 rounded-full" />
-              Key Data-Backed Findings
-            </h4>
-            <ul className="space-y-2.5">
-              {project.work.map((finding, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-sm leading-6 text-slate-300">
-                  <CheckCircle2 size={16} className="mt-1 shrink-0 text-cyan-300" />
-                  <span>{finding}</span>
-                </li>
-              ))}
-            </ul>
+            <h2 className="text-2xl sm:text-3xl font-black text-white mt-2 tracking-tight">
+              {project.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-1">
+              {project.subtitle}
+            </p>
           </div>
 
-          {/* Business Recommendations */}
-          <div className="pt-5">
-            <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300 flex items-center gap-2">
-              <span className="h-1 w-3 bg-cyan-400 rounded-full" />
-              Business Recommendations & Strategic Impact
-            </h4>
-            <div className="rounded-2xl border border-cyan-300/20 bg-cyan-300/[0.04] p-4 text-sm leading-7 text-slate-200">
-              {project.case?.recommendations}
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Actions */}
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5">
-          {project.github && project.github !== '#' && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold text-slate-200 transition hover:border-cyan-300/30 hover:text-white"
-            >
-              <Github size={15} />
-              <span>View Repository on GitHub</span>
-            </a>
-          )}
           <button
             onClick={onClose}
-            className="ml-auto inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-5 py-2.5 text-xs font-bold text-slate-950 transition hover:bg-cyan-200"
+            className="p-2.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-colors shrink-0"
+            aria-label="Close Case Study"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Modal Scrollable Content */}
+        <div className="p-6 sm:p-8 overflow-y-auto space-y-8 text-slate-300 text-sm leading-relaxed">
+          
+          {/* Key Stats Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {project.stats.map(([label, val], idx) => (
+              <div key={idx} className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                <div className="text-[10px] font-mono text-slate-400 uppercase">{label}</div>
+                <div className="text-base font-bold text-cyan-300 mt-0.5">{val}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Section 1: Business Problem */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-rose-400 font-bold text-base">
+              <AlertCircle className="w-5 h-5 text-rose-400 shrink-0" />
+              <h3>1. Business & Operational Problem</h3>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300">
+              {project.case.problem}
+            </div>
+          </div>
+
+          {/* Section 2: Dataset & Data Preparation */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
+              <Database className="w-5 h-5 text-cyan-400 shrink-0" />
+              <h3>2. Dataset Architecture & ETL Cleaning</h3>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+              <div>
+                <strong className="text-white">Dataset Scope: </strong>
+                <span>{project.case.dataset}</span>
+              </div>
+              <div className="pt-2 border-t border-slate-800">
+                <strong className="text-white">ETL & Data Hygiene: </strong>
+                <span>{project.case.cleaning}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3: Analytical Methodology & Modeling */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-blue-400 font-bold text-base">
+              <LineChart className="w-5 h-5 text-blue-400 shrink-0" />
+              <h3>3. Quantitative Analysis & Modeling Methodology</h3>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300">
+              {project.case.analysis}
+            </div>
+          </div>
+
+          {/* Section 4: Visualizations & Dashboards */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-purple-400 font-bold text-base">
+              <BookOpen className="w-5 h-5 text-purple-400 shrink-0" />
+              <h3>4. Visual Analytics & Executive Reporting</h3>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300">
+              {project.case.visualization}
+            </div>
+          </div>
+
+          {/* Section 5: Strategic Recommendations & ROI */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-emerald-400 font-bold text-base">
+              <Lightbulb className="w-5 h-5 text-emerald-400 shrink-0" />
+              <h3>5. Business Impact & Strategic Recommendations</h3>
+            </div>
+            <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 text-slate-200">
+              {project.case.recommendations}
+            </div>
+          </div>
+
+          {/* Tech Stack Pills */}
+          <div className="pt-2">
+            <div className="text-xs font-mono uppercase text-slate-400 mb-2">Technologies Used:</div>
+            <div className="flex flex-wrap gap-2">
+              {project.tools.map((tool, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700 text-xs font-medium"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Modal Footer */}
+        <div className="p-4 sm:p-6 bg-[#091122] border-t border-slate-800 flex items-center justify-between">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition-all border border-slate-700"
+          >
+            <Github className="w-4 h-4 text-slate-300" />
+            <span>View Source Repository</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+
+          <button
+            onClick={onClose}
+            className="px-5 py-2 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-xs font-bold transition-colors"
           >
             Close Case Study
           </button>
         </div>
+
       </div>
     </div>
   );
