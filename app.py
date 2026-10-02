@@ -902,7 +902,7 @@ with ed_c1:
     st.markdown("""
     <div class="glass-card">
         <div style="font-weight: 700; color: #ffffff; font-size: 1rem;">Diploma in Data Science (Pursuing)</div>
-        <div style="color: #22d3ee; font-size: 0.85rem; font-weight: 600;">IIT Madras (Online, Self-Paced) · 2025 – 2026(Dec)</div>
+        <div style="color: #22d3ee; font-size: 0.85rem; font-weight: 600;">IIT Madras · 2025 – 2026</div>
         <p style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.4rem;">Machine Learning, Statistical Inference, Python for Data Science, and Relational Database Systems.</p>
     </div>
     <div class="glass-card">
